@@ -40,8 +40,8 @@ public class DriveSubsystem extends Subsystem {
     }
     
     public void tankDrive(Joystick joy) {
-    	robotDrive.tankDrive(joy.getRawAxis(RobotMap.DriverVerticalLeftAxisPort),
-    			joy.getRawAxis(RobotMap.DriverVerticalRightAxisPort));
+    	robotDrive.tankDrive(0.1*joy.getRawAxis(RobotMap.DriverVerticalLeftAxisPort),
+    			0.1*joy.getRawAxis(RobotMap.DriverVerticalRightAxisPort));
     }
     
     public void tankDrive(double leftValue, double rightValue) {
