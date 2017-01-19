@@ -14,7 +14,7 @@ public class Chooser {
 	public Chooser() {
 		chooser = new SendableChooser<CommandGroup>();
 		
-		chooser.addDefault("什么也不干", null);
+		chooser.addDefault("浠�涔堥兘娌″共", null);
 		
 		SmartDashboard.putData("Auto selector", chooser);
 	}
