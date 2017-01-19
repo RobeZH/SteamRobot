@@ -1,6 +1,8 @@
 package org.usfirst.frc.team6353.robot;
 
 import org.usfirst.frc.team6353.robot.RobotMap;
+import org.usfirst.frc.team6353.robot.commands.DriveWithJoystickCommand;
+import org.usfirst.frc.team6353.robot.triggers.DoubleAxis;
 
 import edu.wpi.first.wpilibj.Joystick;
 
@@ -9,15 +11,18 @@ import edu.wpi.first.wpilibj.Joystick;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	Joystick mainJoystick;
-	Joystick releaseJoystick;
+	public Joystick mainJoystick;
+	public Joystick releaseJoystick;
+	public DoubleAxis doubleAxis;
 	
 	public OI(){
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
 		releaseJoystick = new Joystick(RobotMap.ReleaseJoystickPort);
 		
+		doubleAxis = new DoubleAxis(mainJoystick, RobotMap.DriverVerticalLeftAxisPort, 
+				RobotMap.DriverVerticalRightAxisPort);
 		
-		
+		doubleAxis.whenActive(new DriveWithJoystickCommand());
 	}
 
 	//// CREATING BUTTONS

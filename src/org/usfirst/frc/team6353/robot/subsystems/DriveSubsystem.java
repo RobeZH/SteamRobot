@@ -1,8 +1,9 @@
 package org.usfirst.frc.team6353.robot.subsystems;
 
 import org.usfirst.frc.team6353.robot.RobotMap;
-import org.usfirst.frc.team6353.robot.commands.DriveCommand;
+import org.usfirst.frc.team6353.robot.commands.DriveWithJoystickCommand;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -29,14 +30,22 @@ public class DriveSubsystem extends Subsystem {
 		robotDrive = new RobotDrive(driveFrontLeft, driveRearLeft, driveFrontRight, driveRearRight);
 	}
     public void initDefaultCommand() {
-    	setDefaultCommand(new DriveCommand());
+    	setDefaultCommand(new DriveWithJoystickCommand());
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	
     }
+    public void stop(){
+    	robotDrive.tankDrive(0, 0);
+    }
+    
+    public void tankDrive(Joystick joy) {
+    	robotDrive.tankDrive(joy.getRawAxis(RobotMap.DriverVerticalLeftAxisPort),
+    			joy.getRawAxis(RobotMap.DriverVerticalRightAxisPort));
+    }
     
     public void tankDrive(double leftValue, double rightValue) {
-		tankDrive(leftValue, rightValue, RobotMap.IsSquareInput);
+		robotDrive.tankDrive(leftValue, rightValue);
 	}
 
 	public void tankDrive(double leftValue, double rightValue, boolean isSquareInput) {
