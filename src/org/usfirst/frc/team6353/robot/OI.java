@@ -16,6 +16,8 @@ public class OI {
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
 		releaseJoystick = new Joystick(RobotMap.ReleaseJoystickPort);
 		
+		
+		
 	}
 
 	//// CREATING BUTTONS

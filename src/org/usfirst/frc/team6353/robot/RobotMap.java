@@ -28,6 +28,8 @@ public class RobotMap {
 	public static final int ReleaseJoystickPort = 1;
 	
 	
+	public static final double JoystickAxisToleranceDegree = 0.2;
+	
 	public static final boolean IsSquareInput = true;
 	
 }
