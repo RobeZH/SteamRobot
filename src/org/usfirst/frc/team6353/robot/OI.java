@@ -22,7 +22,7 @@ public class OI {
 		doubleAxis = new DoubleAxis(mainJoystick, RobotMap.DriverVerticalLeftAxisPort, 
 				RobotMap.DriverVerticalRightAxisPort);
 		
-		doubleAxis.whenActive(new DriveWithJoystickCommand());
+		doubleAxis.whileActive(new DriveWithJoystickCommand());
 	}
 
 	//// CREATING BUTTONS
