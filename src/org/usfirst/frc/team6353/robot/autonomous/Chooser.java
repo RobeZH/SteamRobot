@@ -15,6 +15,7 @@ public class Chooser {
 		chooser = new SendableChooser<CommandGroup>();
 		
 		chooser.addDefault("什么都没干", null);
+		chooser.addDefault("尝试一下", new TryADrive());
 		
 		SmartDashboard.putData("Auto selector", chooser);
 	}

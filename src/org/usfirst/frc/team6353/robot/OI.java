@@ -1,11 +1,11 @@
 package org.usfirst.frc.team6353.robot;
 
 import org.usfirst.frc.team6353.robot.RobotMap;
-import org.usfirst.frc.team6353.robot.commands.DriveStopCommand;
+//import org.usfirst.frc.team6353.robot.commands.DriveStopCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
+//import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -20,9 +20,9 @@ public class OI {
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
 		releaseJoystick = new Joystick(RobotMap.ReleaseJoystickPort);
 		
-		stopButton = new JoystickButton(mainJoystick, RobotMap.JoystickStopButon);
+		//stopButton = new JoystickButton(mainJoystick, RobotMap.JoystickStopButon);
 		
-		stopButton.whileHeld(new DriveStopCommand());
+		//stopButton.whileHeld(new DriveStopCommand());
 	}
 
 	//// CREATING BUTTONS
