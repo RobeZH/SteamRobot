@@ -39,8 +39,8 @@ public class DriveSubsystem extends Subsystem {
     	//System.out.println("Set complete");
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	
     }
+    
     public void stop(){
     	robotDrive.tankDrive(0, 0);
     }
@@ -48,11 +48,11 @@ public class DriveSubsystem extends Subsystem {
     public void tankDrive(Joystick joy) {
     	double x = joy.getRawAxis(RobotMap.DriverHorizontalAxisPort);
     	double y = joy.getRawAxis(RobotMap.DriverVerticalAxisPort);
-    	double leftspeed = 0;
-    	double rightspeed = 0;
+    	double leftspeed;
+    	double rightspeed;
     	double multiplyingconstant = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
     	
-    	if(y < 0){
+    	if(y < 0) {
     		if(x == 0){
     			leftspeed = 1;
     			rightspeed = 1;
@@ -69,6 +69,10 @@ public class DriveSubsystem extends Subsystem {
     	else if(y > 0.5) {
     		leftspeed = -1;
     		rightspeed = -1;
+    	}
+    	else {
+    		leftspeed = 0;
+    		rightspeed = 0;
     	}
     	
     	tankDrive(multiplyingconstant * leftspeed, 
