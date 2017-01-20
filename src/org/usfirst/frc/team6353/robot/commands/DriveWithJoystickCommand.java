@@ -11,6 +11,7 @@ public class DriveWithJoystickCommand extends Command {
     public DriveWithJoystickCommand() {
         // Use requires() here to declare subsystem dependencies
     	requires(Robot.driveSubsystem);
+    	System.out.println("SetDriveSubsystem");
     }
 
     // Called just before this Command runs the first time
@@ -19,7 +20,9 @@ public class DriveWithJoystickCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	System.out.println("Before trying to tankDrive...");
     	Robot.driveSubsystem.tankDrive(Robot.oi.mainJoystick);
+    	System.out.println("After trying to tankDrive...");
     }
 
     // Make this return true when this Command no longer needs to run execute()

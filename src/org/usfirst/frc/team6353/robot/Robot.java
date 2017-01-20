@@ -26,9 +26,8 @@ public class Robot extends IterativeRobot {
 	public static final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
 	public static final ShootSubsystem shootSubsystem = new ShootSubsystem();
 	public static final BallCollectSubsystem BallCollectorSubsystem = new BallCollectSubsystem();
-
+	
 	Chooser chooser;
-
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -37,6 +36,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		oi = new OI();
 		chooser = new Chooser();
+		System.out.println("Robot Initializing");
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 	}

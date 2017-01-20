@@ -28,10 +28,12 @@ public class DriveSubsystem extends Subsystem {
 		driveRearRight = new VictorSP(RobotMap.DriverRearRightPort);
 		
 		robotDrive = new RobotDrive(driveFrontLeft, driveRearLeft, driveFrontRight, driveRearRight);
+		
+		System.out.println("Dr iveSubsystem Initializing");
 	}
     public void initDefaultCommand() {
     	setDefaultCommand(new DriveWithJoystickCommand());
-    	
+    	System.out.println("SetDefaultCommand");
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	
@@ -43,6 +45,9 @@ public class DriveSubsystem extends Subsystem {
     public void tankDrive(Joystick joy) {
     	robotDrive.tankDrive(0.1*joy.getRawAxis(RobotMap.DriverVerticalLeftAxisPort),
     			0.1*joy.getRawAxis(RobotMap.DriverVerticalRightAxisPort));
+    	System.out.println("The two axis values are:");
+    	System.out.println(0.1*joy.getRawAxis(RobotMap.DriverVerticalLeftAxisPort));
+    	System.out.println(0.1*joy.getRawAxis(RobotMap.DriverVerticalRightAxisPort));
     }
     
     public void tankDrive(double leftValue, double rightValue) {

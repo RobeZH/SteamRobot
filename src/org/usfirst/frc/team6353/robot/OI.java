@@ -18,7 +18,7 @@ public class OI {
 	
 	public OI(){
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
-		releaseJoystick = new Joystick(RobotMap.ReleaseJoystickPort);
+		//releaseJoystick = new Joystick(RobotMap.ReleaseJoystickPort);
 		
 		//stopButton = new JoystickButton(mainJoystick, RobotMap.JoystickStopButon);
 		
