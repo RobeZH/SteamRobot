@@ -22,6 +22,7 @@ public class DriveSubsystem extends Subsystem {
 	RobotDrive robotDrive;
 	
 	public DriveSubsystem(){
+		System.out.println("Creating Drive system");
 		driveFrontLeft = new VictorSP(RobotMap.DriverFrontLeftPort);
 		driveFrontRight = new VictorSP(RobotMap.DriverFrontRightPort);
 		driveRearLeft = new VictorSP(RobotMap.DriverRearLeftPort);
@@ -32,8 +33,9 @@ public class DriveSubsystem extends Subsystem {
 		System.out.println("Dr iveSubsystem Initializing");
 	}
     public void initDefaultCommand() {
-    	setDefaultCommand(new DriveWithJoystickCommand());
     	System.out.println("SetDefaultCommand");
+    	setDefaultCommand(new DriveWithJoystickCommand());
+    	System.out.println("Set compelet");
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	

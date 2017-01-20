@@ -12,12 +12,14 @@ public class Chooser {
 	Command autonomousCommand;
 	
 	public Chooser() {
+		System.out.println("Creating CHooser");
 		chooser = new SendableChooser<CommandGroup>();
 		
 		chooser.addDefault("什么都没干", null);
 		chooser.addDefault("尝试一下", new TryADrive());
 		
 		SmartDashboard.putData("Auto selector", chooser);
+		System.out.println("Creating Chooser compelte");
 	}
 	
 	public void run() {
