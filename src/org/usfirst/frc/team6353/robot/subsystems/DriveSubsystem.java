@@ -35,7 +35,7 @@ public class DriveSubsystem extends Subsystem {
     public void initDefaultCommand() {
     	System.out.println("SetDefaultCommand");
     	setDefaultCommand(new DriveWithJoystickCommand());
-    	System.out.println("Set compelet");
+    	System.out.println("Set complete");
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	
