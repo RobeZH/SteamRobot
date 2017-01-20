@@ -22,7 +22,8 @@ public class DriveSubsystem extends Subsystem {
 	RobotDrive robotDrive;
 	
 	public DriveSubsystem(){
-		System.out.println("Creating Drive system");
+		System.out.println("DriveSubsystem Initializing");
+		
 		driveFrontLeft = new VictorSP(RobotMap.DriverFrontLeftPort);
 		driveFrontRight = new VictorSP(RobotMap.DriverFrontRightPort);
 		driveRearLeft = new VictorSP(RobotMap.DriverRearLeftPort);
@@ -30,12 +31,12 @@ public class DriveSubsystem extends Subsystem {
 		
 		robotDrive = new RobotDrive(driveFrontLeft, driveRearLeft, driveFrontRight, driveRearRight);
 		
-		System.out.println("Dr iveSubsystem Initializing");
+		
 	}
     public void initDefaultCommand() {
-    	System.out.println("SetDefaultCommand");
+    	//System.out.println("SetDefaultCommand");
     	setDefaultCommand(new DriveWithJoystickCommand());
-    	System.out.println("Set complete");
+    	//System.out.println("Set complete");
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	
@@ -45,15 +46,38 @@ public class DriveSubsystem extends Subsystem {
     }
     
     public void tankDrive(Joystick joy) {
-    	robotDrive.tankDrive(0.3*joy.getRawAxis(RobotMap.DriverVerticalLeftAxisPort),
-    			0.3*joy.getRawAxis(RobotMap.DriverVerticalRightAxisPort));
-    	System.out.println("The two axis values are:");
-    	System.out.println(joy.getRawAxis(RobotMap.DriverVerticalLeftAxisPort));
-    	System.out.println(joy.getRawAxis(RobotMap.DriverVerticalRightAxisPort));
+    	double x = joy.getRawAxis(RobotMap.DriverHorizontalAxisPort);
+    	double y = joy.getRawAxis(RobotMap.DriverVerticalAxisPort);
+    	double leftspeed = 0;
+    	double rightspeed = 0;
+    	double multiplyingconstant = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+    	
+    	if(y < 0){
+    		if(x == 0){
+    			leftspeed = 1;
+    			rightspeed = 1;
+    		}
+    		if(x > 0){
+    			leftspeed = 1;
+    			rightspeed = Math.abs(Math.atan(y/x)) / Math.PI;
+    		}
+    		else {
+    			leftspeed = Math.abs(Math.atan(y/x)) / Math.PI;
+    			rightspeed = 1;
+    		}
+    	}
+    	else if(y > 0.5) {
+    		leftspeed = -1;
+    		rightspeed = -1;
+    	}
+    	
+    	tankDrive(multiplyingconstant * leftspeed, 
+    			multiplyingconstant * rightspeed);
     }
     
     public void tankDrive(double leftValue, double rightValue) {
-		robotDrive.tankDrive(leftValue, rightValue);
+		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant*leftValue,
+				RobotMap.DriverSpeedControlConstant*rightValue);
 	}
 
 	public void tankDrive(double leftValue, double rightValue, boolean isSquareInput) {

@@ -1,6 +1,8 @@
 package org.usfirst.frc.team6353.robot.commands;
 
 import org.usfirst.frc.team6353.robot.Robot;
+import org.usfirst.frc.team6353.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -20,9 +22,7 @@ public class DriveWithJoystickCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println("Before trying to tankDrive...");
     	Robot.driveSubsystem.tankDrive(Robot.oi.mainJoystick);
-    	System.out.println("After trying to tankDrive...");
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -24,6 +24,9 @@ public class RobotMap {
 	public static final int DriverVerticalLeftAxisPort = 1;
 	public static final int DriverVerticalRightAxisPort = 5;
 	
+	public static final int DriverHorizontalAxisPort = 0;
+	public static final int DriverVerticalAxisPort = 1;
+	
 	public static final int DriverJoystickPort = 0;
 	public static final int ReleaseJoystickPort = 1;
 	
@@ -33,5 +36,7 @@ public class RobotMap {
 	public static final int JoystickStopButon = 1;
 	
 	public static final boolean IsSquareInput = true;
+	
+	public static final double DriverSpeedControlConstant = 0.3;
 	
 }

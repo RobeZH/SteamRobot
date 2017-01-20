@@ -12,7 +12,7 @@ public class Chooser {
 	Command autonomousCommand;
 	
 	public Chooser() {
-		System.out.println("Creating CHooser");
+		//System.out.println("Creating CHooser");
 		chooser = new SendableChooser<CommandGroup>();
 		
 		chooser.addDefault("什么都没干", null);
