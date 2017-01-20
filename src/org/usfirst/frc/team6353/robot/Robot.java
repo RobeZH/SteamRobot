@@ -24,8 +24,8 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
 	public static final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
-	public static final ShootSubsystem shootSubsystem = new ShootSubsystem();
-	public static final BallCollectSubsystem BallCollectorSubsystem = new BallCollectSubsystem();
+    public static final ShootSubsystem shootSubsystem = new ShootSubsystem();
+    public static final BallCollectSubsystem BallCollectorSubsystem = new BallCollectSubsystem();
 	
 	Chooser chooser;
 	/**
@@ -69,6 +69,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		System.out.println("atuo init");
 		chooser.run();
 	}
 
@@ -77,11 +78,13 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
+		System.out.println("aoto periodic");
 		Scheduler.getInstance().run();
 	}
 
 	@Override
 	public void teleopInit() {
+		System.out.println("tele init");
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -94,6 +97,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		System.out.println("tele perodic");
 		Scheduler.getInstance().run();
 	}
 
@@ -102,6 +106,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void testPeriodic() {
+		System.out.println("test perodic");
 		LiveWindow.run();
 	}
 }

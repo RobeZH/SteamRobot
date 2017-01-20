@@ -45,11 +45,11 @@ public class DriveSubsystem extends Subsystem {
     }
     
     public void tankDrive(Joystick joy) {
-    	robotDrive.tankDrive(0.1*joy.getRawAxis(RobotMap.DriverVerticalLeftAxisPort),
-    			0.1*joy.getRawAxis(RobotMap.DriverVerticalRightAxisPort));
+    	robotDrive.tankDrive(0.3*joy.getRawAxis(RobotMap.DriverVerticalLeftAxisPort),
+    			0.3*joy.getRawAxis(RobotMap.DriverVerticalRightAxisPort));
     	System.out.println("The two axis values are:");
-    	System.out.println(0.1*joy.getRawAxis(RobotMap.DriverVerticalLeftAxisPort));
-    	System.out.println(0.1*joy.getRawAxis(RobotMap.DriverVerticalRightAxisPort));
+    	System.out.println(joy.getRawAxis(RobotMap.DriverVerticalLeftAxisPort));
+    	System.out.println(joy.getRawAxis(RobotMap.DriverVerticalRightAxisPort));
     }
     
     public void tankDrive(double leftValue, double rightValue) {

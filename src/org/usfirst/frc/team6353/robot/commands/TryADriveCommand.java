@@ -10,8 +10,9 @@ public class TryADriveCommand extends Command {
 
     public TryADriveCommand() {
         // Use requires() here to declare subsystem dependencies
+    	System.out.println("Creating Trydrive");
     	requires(Robot.driveSubsystem);
-    	System.out.println("Setting automomous DriveSubsystem");
+    	
     }
 
     // Called just before this Command runs the first time
