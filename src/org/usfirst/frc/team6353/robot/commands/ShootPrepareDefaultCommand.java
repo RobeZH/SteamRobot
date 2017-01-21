@@ -1,13 +1,16 @@
 package org.usfirst.frc.team6353.robot.commands;
 
+import org.usfirst.frc.team6353.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ShootHighCommand extends Command {
+public class ShootPrepareDefaultCommand extends Command {
 
-    public ShootHighCommand() {
+    public ShootPrepareDefaultCommand() {
+    	requires(Robot.shootPrepareSubsystem);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -18,6 +21,7 @@ public class ShootHighCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.shootPrepareSubsystem.stop();
     	
     }
 

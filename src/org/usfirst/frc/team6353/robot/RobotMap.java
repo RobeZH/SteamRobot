@@ -23,12 +23,17 @@ public class RobotMap {
 	
 	public static final int DriverHorizontalAxisPort = 0;
 	public static final int DriverVerticalAxisPort = 1;
+	public static final int DriverSpeedControlAxisPort = 3;
 	
 	public static final int DriverJoystickPort = 0;
-	public static final int ReleaseJoystickPort = 1;
+	public static final int AuxJoystickPort = 1;
 	
 	public static final int DriverJoystickAbsRotateLPort = 3;
 	public static final int DriverJoystickAbsRotateRPort = 4;
+	
+	public static final int ShootPrepareButtonID = 6;
+	
+	public static final int ShootPrepareMotorPort = 9;
 	
 	public static final double JoystickAxisToleranceDegree = 0.2;
 	
@@ -36,6 +41,6 @@ public class RobotMap {
 	
 	public static final boolean IsSquareInput = true;
 	
-	public static final double DriverSpeedControlConstant = 0.3;
+	public static final double DriverSpeedControlConstant = 0.4;
 	
 }

@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6353.robot.subsystems;
 
+
 import org.usfirst.frc.team6353.robot.RobotMap;
 import org.usfirst.frc.team6353.robot.commands.DriveWithJoystickCommand;
 
@@ -50,8 +51,12 @@ public class DriveSubsystem extends Subsystem {
     	double y = joy.getRawAxis(RobotMap.DriverVerticalAxisPort);
     	double leftspeed = 0;
     	double rightspeed = 0;
-    	double multiplyingconstant = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
-    	double anglespeed = Math.atan(Math.abs(y) / Math.abs(x)) / (Math.PI / 2);
+    	double DistanceFromZero = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+    	double angle = Math.acos(Math.abs(x) / DistanceFromZero);
+    	double Proportiontozero = (angle > Math.PI / 4 ? Math.abs(y) : Math.abs(x));
+    	double anglespeed = angle / (Math.PI / 2);
+    	double controlspeedconstant = - joy.getRawAxis(RobotMap.DriverSpeedControlAxisPort) / 2 + 1.0 / 2;
+    	
     	
     	if(y < 0) {
     		if(x == 0) {
@@ -67,7 +72,7 @@ public class DriveSubsystem extends Subsystem {
     			rightspeed = 1;
     		}
     	}
-    	else if(x!=0 && anglespeed <= 0.2) {
+    	else if(x!=0 && angle <= 0.1 * Math.PI) {
     		if(x > 0) {
     			leftspeed = 1;
     			rightspeed = 0;
@@ -82,6 +87,7 @@ public class DriveSubsystem extends Subsystem {
     		leftspeed = -1;
     		rightspeed = -1;
     	}
+    	
     	else {
     		leftspeed = 0;
     		rightspeed = 0;
@@ -89,13 +95,18 @@ public class DriveSubsystem extends Subsystem {
     	
     	//System.out.println("LSpeed: " + leftspeed);
     	//System.out.println("RSpeed: " + rightspeed);
-    	tankDrive(multiplyingconstant * leftspeed, 
-    			multiplyingconstant * rightspeed);
+    	//System.out.println("Speed Control Constant: " + controlspeedconstant);
+    	//System.out.println(controlspeedconstant + " " + Proportiontozero + " " + leftspeed);
+    	//System.out.println(controlspeedconstant + " " + Proportiontozero + " " +  rightspeed);
+    	tankDrive(controlspeedconstant * Proportiontozero * leftspeed,
+    			controlspeedconstant * Proportiontozero * rightspeed);
+    	
+    			
     }
     
     public void tankDrive(double leftValue, double rightValue) {
-		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant*leftValue,
-				RobotMap.DriverSpeedControlConstant*rightValue);
+		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant * leftValue,
+				RobotMap.DriverSpeedControlConstant * rightValue);
 	}
 
 	public void tankDrive(double leftValue, double rightValue, boolean isSquareInput) {

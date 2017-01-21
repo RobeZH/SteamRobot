@@ -3,6 +3,7 @@ package org.usfirst.frc.team6353.robot;
 
 
 import org.usfirst.frc.team6353.robot.autonomous.Chooser;
+import org.usfirst.frc.team6353.robot.subsystems.ShootPrepareSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.BallCollectSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.ClimbSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.DriveSubsystem;
@@ -25,8 +26,9 @@ public class Robot extends IterativeRobot {
 	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
 	public static final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
     public static final ShootSubsystem shootSubsystem = new ShootSubsystem();
-    public static final BallCollectSubsystem BallCollectorSubsystem = new BallCollectSubsystem();
-	
+    public static final BallCollectSubsystem ballCollectSubsystem = new BallCollectSubsystem();
+	public static final ShootPrepareSubsystem shootPrepareSubsystem = 
+			new ShootPrepareSubsystem();
 	Chooser chooser;
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -97,7 +99,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		System.out.println("Teleoporating Period...");
+		//System.out.println("Teleoporating Period...");
 		Scheduler.getInstance().run();
 	}
 

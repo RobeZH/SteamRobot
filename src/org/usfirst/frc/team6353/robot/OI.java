@@ -4,6 +4,7 @@ import org.usfirst.frc.team6353.robot.RobotMap;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateLeftCommand;
 //import org.usfirst.frc.team6353.robot.commands.DriveStopCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateRightCommand;
+import org.usfirst.frc.team6353.robot.commands.ShootPrepareCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -16,21 +17,25 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	public Joystick mainJoystick;
-	public Joystick releaseJoystick;
+	public Joystick auxJoystick;
 	//public Button stopButton;
 	public Button AbsRotateLeftButton;
 	public Button AbsRotateRightButton;
+	public Button ShootPrepButton;
 	
 	public OI(){
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
-		//releaseJoystick = new Joystick(RobotMap.ReleaseJoystickPort);
+		auxJoystick = new Joystick(RobotMap.AuxJoystickPort);
 		
 		AbsRotateLeftButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateLPort);
 		AbsRotateRightButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateRPort);
+		ShootPrepButton = new JoystickButton(auxJoystick, RobotMap.ShootPrepareButtonID);
 		//stopButton = new JoystickButton(mainJoystick, RobotMap.JoystickStopButon);
 		
 		AbsRotateLeftButton.whileHeld(new DriveAbsRotateLeftCommand());
 		AbsRotateRightButton.whileHeld(new DriveAbsRotateRightCommand());
+		ShootPrepButton.whileHeld(new ShootPrepareCommand());
+		
 		//stopButton.whileHeld(new DriveStopCommand());
 	}
 
