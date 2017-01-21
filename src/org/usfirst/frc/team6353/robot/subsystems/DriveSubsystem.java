@@ -48,25 +48,37 @@ public class DriveSubsystem extends Subsystem {
     public void tankDrive(Joystick joy) {
     	double x = joy.getRawAxis(RobotMap.DriverHorizontalAxisPort);
     	double y = joy.getRawAxis(RobotMap.DriverVerticalAxisPort);
-    	double leftspeed;
-    	double rightspeed;
+    	double leftspeed = 0;
+    	double rightspeed = 0;
     	double multiplyingconstant = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+    	double anglespeed = Math.atan(Math.abs(y) / Math.abs(x)) / (Math.PI / 2);
     	
     	if(y < 0) {
-    		if(x == 0){
+    		if(x == 0) {
     			leftspeed = 1;
     			rightspeed = 1;
     		}
-    		if(x > 0){
+    		if(x > 0) {
     			leftspeed = 1;
-    			rightspeed = Math.abs(Math.atan(y/x)) / Math.PI;
+    			rightspeed = anglespeed;
     		}
     		else {
-    			leftspeed = Math.abs(Math.atan(y/x)) / Math.PI;
+    			leftspeed = anglespeed;
     			rightspeed = 1;
     		}
     	}
-    	else if(y > 0.5) {
+    	else if(x!=0 && anglespeed <= 0.2) {
+    		if(x > 0) {
+    			leftspeed = 1;
+    			rightspeed = 0;
+    		}
+    		else if(x < 0) {
+    			leftspeed = 0;
+    			rightspeed = 1;
+    		}
+    			
+    	}
+    	else if(y > 0.8) {
     		leftspeed = -1;
     		rightspeed = -1;
     	}
@@ -75,6 +87,8 @@ public class DriveSubsystem extends Subsystem {
     		rightspeed = 0;
     	}
     	
+    	//System.out.println("LSpeed: " + leftspeed);
+    	//System.out.println("RSpeed: " + rightspeed);
     	tankDrive(multiplyingconstant * leftspeed, 
     			multiplyingconstant * rightspeed);
     }

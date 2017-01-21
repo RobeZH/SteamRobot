@@ -69,7 +69,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		System.out.println("atuo init");
+		System.out.println("Autonoumous Period Initializing");
 		chooser.run();
 	}
 
@@ -78,13 +78,13 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		System.out.println("aoto periodic");
+		System.out.println("Autonoumous Period...");
 		Scheduler.getInstance().run();
 	}
 
 	@Override
 	public void teleopInit() {
-		System.out.println("tele init");
+		System.out.println("Teleoporating Period Initializing");
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -97,7 +97,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		System.out.println("tele perodic");
+		System.out.println("Teleoporating Period...");
 		Scheduler.getInstance().run();
 	}
 
@@ -106,7 +106,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void testPeriodic() {
-		System.out.println("test perodic");
+		System.out.println("Test Period...");
 		LiveWindow.run();
 	}
 }

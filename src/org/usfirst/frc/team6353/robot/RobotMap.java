@@ -27,8 +27,8 @@ public class RobotMap {
 	public static final int DriverJoystickPort = 0;
 	public static final int ReleaseJoystickPort = 1;
 	
-	public static final int DriverJoystickAbsRotateLPort = 1;
-	public static final int DriverJoystickAbsRotateRPort = 2;
+	public static final int DriverJoystickAbsRotateLPort = 3;
+	public static final int DriverJoystickAbsRotateRPort = 4;
 	
 	public static final double JoystickAxisToleranceDegree = 0.2;
 	

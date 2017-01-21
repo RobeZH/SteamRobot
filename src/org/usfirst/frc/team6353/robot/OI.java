@@ -29,7 +29,7 @@ public class OI {
 		AbsRotateRightButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateRPort);
 		//stopButton = new JoystickButton(mainJoystick, RobotMap.JoystickStopButon);
 		
-		AbsRotateRightButton.whileHeld(new DriveAbsRotateLeftCommand());
+		AbsRotateLeftButton.whileHeld(new DriveAbsRotateLeftCommand());
 		AbsRotateRightButton.whileHeld(new DriveAbsRotateRightCommand());
 		//stopButton.whileHeld(new DriveStopCommand());
 	}
