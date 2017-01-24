@@ -27,7 +27,7 @@ public class ShootPrepareSubsystem extends Subsystem {
     }
     
     public void prepForShoot() {
-    	prepwheel.setSpeed(0.8);
+    	prepwheel.setSpeed(1);
     	//System.out.println("Executing...");
     }
     

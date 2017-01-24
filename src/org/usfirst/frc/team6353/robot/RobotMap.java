@@ -35,6 +35,9 @@ public class RobotMap {
 	
 	public static final int ShootPrepareMotorPort = 9;
 	
+	public static final int USBCameraWidth = 320;
+	public static final int USBCameraHeight = 240;
+	
 	public static final double JoystickAxisToleranceDegree = 0.2;
 	
 	public static final int JoystickStopButon = 1;
