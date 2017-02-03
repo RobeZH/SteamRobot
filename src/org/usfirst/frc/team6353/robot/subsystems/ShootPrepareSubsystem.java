@@ -1,17 +1,22 @@
 package org.usfirst.frc.team6353.robot.subsystems;
 
 import org.usfirst.frc.team6353.robot.RobotMap;
+import org.usfirst.frc.team6353.robot.Robot;
 import org.usfirst.frc.team6353.robot.commands.ShootPrepareDefaultCommand;
 
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
+
+import edu.wpi.first.wpilibj.RobotDrive;
+
+
 
 /**
  *
  */
 public class ShootPrepareSubsystem extends Subsystem {
 	
-	VictorSP prepwheel;
+	private VictorSP prepwheel;
 	
 	public ShootPrepareSubsystem() {
 		prepwheel = new VictorSP(RobotMap.ShootPrepareMotorPort);
@@ -29,6 +34,27 @@ public class ShootPrepareSubsystem extends Subsystem {
     public void prepForShoot() {
     	prepwheel.setSpeed(-0.5);
     	//System.out.println("Executing...");
+    }
+    
+    public void aiming() {
+		double centerX;
+		double centerY;
+		synchronized (Robot.imgLock) {
+			centerX = Robot.centerX;
+			centerY = Robot.centerY;
+			System.out.println("Trying to lock img..." + "X: " + centerX + " Y: " + centerY);
+			
+		}
+		double turn = centerX - (Robot.IMG_WIDTH / 2);
+		System.out.println(turn);
+		double leftSpeed = 0.0, rightSpeed = 0.0;
+		if(turn < -13) {
+			 leftSpeed = -0.33; rightSpeed = 0.33;
+		}
+		if(turn > 13) {
+			leftSpeed = 0.33; rightSpeed = -0.33;
+		}
+		Robot.driveSubsystem.robotDrive.tankDrive(leftSpeed, rightSpeed);
     }
     
     public void stop() {

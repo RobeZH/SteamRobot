@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6353.robot;
 
 import org.usfirst.frc.team6353.robot.RobotMap;
+import org.usfirst.frc.team6353.robot.commands.AimingCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateLeftCommand;
 //import org.usfirst.frc.team6353.robot.commands.DriveStopCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateRightCommand;
@@ -22,6 +23,7 @@ public class OI {
 	public Button AbsRotateLeftButton;
 	public Button AbsRotateRightButton;
 	public Button ShootPrepButton;
+	public Button AimingButton;
 	
 	public OI(){
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
@@ -30,6 +32,7 @@ public class OI {
 		AbsRotateLeftButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateLPort);
 		AbsRotateRightButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateRPort);
 		ShootPrepButton = new JoystickButton(auxJoystick, RobotMap.ShootPrepareButtonID);
+		AimingButton = new JoystickButton(auxJoystick, RobotMap.AimingButtonID);
 		//stopButton = new JoystickButton(mainJoystick, RobotMap.JoystickStopButon);
 		
 		AbsRotateLeftButton.whileHeld(new DriveAbsRotateLeftCommand());

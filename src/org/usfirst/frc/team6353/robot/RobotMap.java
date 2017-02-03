@@ -32,6 +32,7 @@ public class RobotMap {
 	public static final int DriverJoystickAbsRotateRPort = 4;
 	
 	public static final int ShootPrepareButtonID = 6;
+	public static final int AimingButtonID = 5;
 	
 	public static final int ShootPrepareMotorPort = 9;
 	

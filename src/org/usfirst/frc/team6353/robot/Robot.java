@@ -1,7 +1,8 @@
-
 package org.usfirst.frc.team6353.robot;
 
 
+import org.opencv.core.Rect;
+import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team6353.robot.autonomous.Chooser;
 import org.usfirst.frc.team6353.robot.subsystems.ShootPrepareSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.BallCollectSubsystem;
@@ -15,6 +16,8 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.vision.VisionThread;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -34,20 +37,40 @@ public class Robot extends IterativeRobot {
 			new ShootPrepareSubsystem();
 	public static final GyroSubsystem gyroSubsystem = new GyroSubsystem();
 	Chooser chooser;
+	public static UsbCamera camera;
+	public static final Object imgLock = new Object();
+	public static VisionThread visionThread;
+	public static double centerX = 0.0;
+	public static double centerY = 0.0;
+	public static final int IMG_WIDTH = 320;
+	public static final int IMG_HEIGHT = 240;
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
 	@Override
 	public void robotInit() {
-		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-		camera.setResolution(RobotMap.USBCameraWidth, RobotMap.USBCameraHeight);
-		
 		oi = new OI();
 		chooser = new Chooser();
 		System.out.println("Robot Initializing");
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
+		
+		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+		camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
+		
+		visionThread = new VisionThread(camera, new GripPipeline(), pipeline -> {
+			if (!pipeline.filterContoursOutput().isEmpty()) {
+				Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+				synchronized (imgLock) {
+					centerX = r.x + (r.width / 2);
+					centerY = r.y + (r.height / 2);
+					
+				}
+			}
+		});
+		
+		visionThread.start();
 	}
 
 	/**
