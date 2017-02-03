@@ -23,6 +23,7 @@ public class DriveSubsystem extends Subsystem {
 	RobotDrive robotDrive;
 	
 	public DriveSubsystem(){
+		
 		System.out.println("DriveSubsystem Initializing");
 		
 		driveFrontLeft = new VictorSP(RobotMap.DriverFrontLeftPort);
@@ -45,6 +46,8 @@ public class DriveSubsystem extends Subsystem {
     public void stop(){
     	robotDrive.tankDrive(0, 0);
     }
+    
+    
     
     public void tankDrive(Joystick joy) {
     	double x = joy.getRawAxis(RobotMap.DriverHorizontalAxisPort);
@@ -112,5 +115,10 @@ public class DriveSubsystem extends Subsystem {
 	public void tankDrive(double leftValue, double rightValue, boolean isSquareInput) {
 		robotDrive.tankDrive(leftValue, rightValue, isSquareInput);
 	}
+	public void arcadeDrive(double speed, double rotateValue) {
+		robotDrive.arcadeDrive(speed, rotateValue);	
+	}
+	
+	
 }
 

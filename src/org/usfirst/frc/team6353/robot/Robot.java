@@ -7,6 +7,7 @@ import org.usfirst.frc.team6353.robot.subsystems.ShootPrepareSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.BallCollectSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.ClimbSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.DriveSubsystem;
+import org.usfirst.frc.team6353.robot.subsystems.GyroSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.ShootSubsystem;
 
 import edu.wpi.cscore.UsbCamera;
@@ -31,6 +32,7 @@ public class Robot extends IterativeRobot {
     public static final BallCollectSubsystem ballCollectSubsystem = new BallCollectSubsystem();
 	public static final ShootPrepareSubsystem shootPrepareSubsystem = 
 			new ShootPrepareSubsystem();
+	public static final GyroSubsystem gyroSubsystem = new GyroSubsystem();
 	Chooser chooser;
 	/**
 	 * This function is run when the robot is first started up and should be

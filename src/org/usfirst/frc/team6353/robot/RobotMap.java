@@ -38,6 +38,17 @@ public class RobotMap {
 	public static final int USBCameraWidth = 320;
 	public static final int USBCameraHeight = 240;
 	
+	public static final double GyroStraightRotateToleranceDegree = 1;
+	
+	public static final double GyroStraightAdjustConstant = 0.2;
+	
+	public static final double GyroDegreeTolerance = 3;
+	public static final double GyroDegreeReduce = 40;
+	public static final double GyroTurnSpeedMinimum = 0.3;
+	public static final double GyroTurnSpeedMaximum = 0.95;
+	public static final double GyroStraightRotateAdjust = 0.2;
+	public static final double GyroStraightRotateTolerance = 1;
+	
 	public static final double JoystickAxisToleranceDegree = 0.2;
 	
 	public static final int JoystickStopButon = 1;
