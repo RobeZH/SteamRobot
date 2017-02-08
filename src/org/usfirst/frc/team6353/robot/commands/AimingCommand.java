@@ -1,14 +1,7 @@
 package org.usfirst.frc.team6353.robot.commands;
 
-import org.opencv.core.Rect;
-import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team6353.robot.Robot;
-import org.usfirst.frc.team6353.robot.RobotMap;
-
-import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.vision.VisionThread;
 
 
 /**

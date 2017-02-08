@@ -35,7 +35,13 @@ public class GyroStraightDriveCommand extends Command {
     protected void execute() {
     	double currentAngle = Robot.gyroSubsystem.getAngle();
     	double delta = Math.abs(currentAngle - finalAngle);
-		Robot.driveSubsystem.arcadeDrive(speed, 
+    	double speednow;
+    	if(timeSinceInitialized() < 0.5)
+    		speednow = speed / 2;
+    	else
+    		speednow = speed;
+    		
+		Robot.driveSubsystem.arcadeDrive(speednow, 
 				delta < RobotMap.GyroStraightRotateToleranceDegree
 				? 0
 				: RobotMap.GyroStraightAdjustConstant * Math.signum(currentAngle - finalAngle));

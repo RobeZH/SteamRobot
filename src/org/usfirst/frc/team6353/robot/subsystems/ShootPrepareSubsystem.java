@@ -7,8 +7,6 @@ import org.usfirst.frc.team6353.robot.commands.ShootPrepareDefaultCommand;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-import edu.wpi.first.wpilibj.RobotDrive;
-
 
 
 /**
