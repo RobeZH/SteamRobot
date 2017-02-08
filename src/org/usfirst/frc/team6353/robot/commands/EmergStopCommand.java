@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class EmergStop extends Command {
+public class EmergStopCommand extends Command {
 
-    public EmergStop() {
+    public EmergStopCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveSubsystem);

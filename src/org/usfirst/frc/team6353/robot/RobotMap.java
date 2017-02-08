@@ -25,6 +25,8 @@ public class RobotMap {
 	public static final int DriverVerticalAxisPort = 1;
 	public static final int DriverSpeedControlAxisPort = 3;
 	
+	public static final int EmergStopButtonID  = 11;
+	
 	public static final int DriverJoystickPort = 0;
 	public static final int AuxJoystickPort = 1;
 	
