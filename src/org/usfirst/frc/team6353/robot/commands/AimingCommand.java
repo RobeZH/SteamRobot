@@ -2,7 +2,6 @@ package org.usfirst.frc.team6353.robot.commands;
 
 import org.opencv.core.Rect;
 import org.opencv.imgproc.Imgproc;
-import org.usfirst.frc.team6353.robot.GripPipeline;
 import org.usfirst.frc.team6353.robot.Robot;
 import org.usfirst.frc.team6353.robot.RobotMap;
 

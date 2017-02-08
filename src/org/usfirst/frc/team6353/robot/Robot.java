@@ -4,6 +4,7 @@ package org.usfirst.frc.team6353.robot;
 import org.opencv.core.Rect;
 import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team6353.robot.autonomous.Chooser;
+import org.usfirst.frc.team6353.robot.grip.GripPipeline;
 import org.usfirst.frc.team6353.robot.subsystems.ShootPrepareSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.BallCollectSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.ClimbSubsystem;

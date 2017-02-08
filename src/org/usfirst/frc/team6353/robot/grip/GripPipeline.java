@@ -1,4 +1,4 @@
-package org.usfirst.frc.team6353.robot;
+package org.usfirst.frc.team6353.robot.grip;
 
 import java.io.File;
 import java.io.FileWriter;
