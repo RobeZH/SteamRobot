@@ -21,6 +21,8 @@ public class DriveSubsystem extends Subsystem {
 	VictorSP driveRearLeft;
 	VictorSP driveRearRight;
 	RobotDrive robotDrive;
+	double leftSpeed = 0;
+	double rightSpeed = 0;
 	
 	public DriveSubsystem(){
 		
@@ -52,8 +54,6 @@ public class DriveSubsystem extends Subsystem {
     public void tankDrive(Joystick joy) {
     	double x = joy.getRawAxis(RobotMap.DriverHorizontalAxisPort);
     	double y = joy.getRawAxis(RobotMap.DriverVerticalAxisPort);
-    	double leftspeed = 0;
-    	double rightspeed = 0;
     	double DistanceFromZero = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
     	double angle = Math.acos(Math.abs(x) / DistanceFromZero);
     	double Proportiontozero = (angle > Math.PI / 4 ? Math.abs(y) : Math.abs(x));
@@ -63,37 +63,37 @@ public class DriveSubsystem extends Subsystem {
     	
     	if(y < 0) {
     		if(x == 0) {
-    			leftspeed = 1;
-    			rightspeed = 1;
+    			leftSpeed = 1;
+    			rightSpeed = 1;
     		}
     		if(x > 0) {
-    			leftspeed = 1;
-    			rightspeed = anglespeed;
+    			leftSpeed = 1;
+    			rightSpeed = anglespeed;
     		}
     		else {
-    			leftspeed = anglespeed;
-    			rightspeed = 1;
+    			leftSpeed = anglespeed;
+    			rightSpeed = 1;
     		}
     	}
     	else if(x!=0 && angle <= 0.1 * Math.PI) {
     		if(x > 0) {
-    			leftspeed = 1;
-    			rightspeed = 0;
+    			leftSpeed = 1;
+    			rightSpeed = 0;
     		}
     		else if(x < 0) {
-    			leftspeed = 0;
-    			rightspeed = 1;
+    			leftSpeed = 0;
+    			rightSpeed = 1;
     		}
     			
     	}
     	else if(y > 0.8) {
-    		leftspeed = -1;
-    		rightspeed = -1;
+    		leftSpeed = -1;
+    		rightSpeed = -1;
     	}
     	
     	else {
-    		leftspeed = 0;
-    		rightspeed = 0;
+    		leftSpeed = 0;
+    		rightSpeed = 0;
     	}
     	
     	//System.out.println("LSpeed: " + leftspeed);
@@ -101,22 +101,34 @@ public class DriveSubsystem extends Subsystem {
     	//System.out.println("Speed Control Constant: " + controlspeedconstant);
     	//System.out.println(controlspeedconstant + " " + Proportiontozero + " " + leftspeed);
     	//System.out.println(controlspeedconstant + " " + Proportiontozero + " " +  rightspeed);
-    	tankDrive(controlspeedconstant * Proportiontozero * leftspeed,
-    			controlspeedconstant * Proportiontozero * rightspeed);
+    	tankDrive(controlspeedconstant * Proportiontozero * leftSpeed,
+    			controlspeedconstant * Proportiontozero * rightSpeed);
     	
     			
     }
     
     public void tankDrive(double leftValue, double rightValue) {
+    	leftSpeed = leftValue;
+    	rightSpeed = rightValue;
 		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant * leftValue,
 				RobotMap.DriverSpeedControlConstant * rightValue);
 	}
 
 	public void tankDrive(double leftValue, double rightValue, boolean isSquareInput) {
+		leftSpeed = leftValue;
+    	rightSpeed = rightValue;
 		robotDrive.tankDrive(leftValue, rightValue, isSquareInput);
 	}
 	public void arcadeDrive(double speed, double rotateValue) {
+		leftSpeed = speed;
+    	rightSpeed = speed;
 		robotDrive.arcadeDrive(speed, rotateValue);	
+	}
+	public double getLeftSpeed() {
+		return leftSpeed;
+	}
+	public double getRightSpeed() {
+		return rightSpeed;
 	}
 	
 	
