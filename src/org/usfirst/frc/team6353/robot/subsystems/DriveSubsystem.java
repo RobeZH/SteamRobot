@@ -120,8 +120,6 @@ public class DriveSubsystem extends Subsystem {
 		robotDrive.tankDrive(leftValue, rightValue, isSquareInput);
 	}
 	public void arcadeDrive(double speed, double rotateValue) {
-		leftSpeed = speed;
-    	rightSpeed = speed;
 		robotDrive.arcadeDrive(speed, rotateValue);	
 	}
 	public double getLeftSpeed() {
