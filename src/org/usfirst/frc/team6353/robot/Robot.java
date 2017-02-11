@@ -37,7 +37,7 @@ public class Robot extends IterativeRobot {
 	public static final ShootPrepareSubsystem shootPrepareSubsystem = 
 			new ShootPrepareSubsystem();
 	public static final GyroSubsystem gyroSubsystem = new GyroSubsystem();
-	Chooser chooser;
+	
 	public static UsbCamera camera;
 	public static final Object imgLock = new Object();
 	public static VisionThread visionThread;
@@ -45,6 +45,9 @@ public class Robot extends IterativeRobot {
 	public static double centerY = 0.0;
 	public static final int IMG_WIDTH = 320;
 	public static final int IMG_HEIGHT = 240;
+	
+	Chooser chooser;
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
