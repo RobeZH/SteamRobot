@@ -1,4 +1,4 @@
- package org.usfirst.frc.team6353.robot.commands;
+package org.usfirst.frc.team6353.robot.commands;
 
 import org.usfirst.frc.team6353.robot.Robot;
 
@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class BallCollectCommand extends Command {
+public class BallCollectDefaultCommand extends Command {
 
-    public BallCollectCommand() {
+    public BallCollectDefaultCommand() {
     	requires(Robot.ballCollectSubsystem);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -21,7 +21,7 @@ public class BallCollectCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.ballCollectSubsystem.startCollecting();
+    	Robot.ballCollectSubsystem.stop();
     }
 
     // Make this return true when this Command no longer needs to run execute()

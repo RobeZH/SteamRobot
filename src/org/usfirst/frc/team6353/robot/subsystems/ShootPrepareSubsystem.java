@@ -43,7 +43,7 @@ public class ShootPrepareSubsystem extends Subsystem {
 			System.out.println("Trying to lock img..." + "X: " + centerX + " Y: " + centerY);
 			
 		}
-		double turn = centerX - (Robot.IMG_WIDTH / 2);
+		double turn = centerX - (RobotMap.USBCameraWidth / 2);
 		System.out.println(turn);
 		double leftSpeed = 0.0, rightSpeed = 0.0;
 		if(turn < -13) {

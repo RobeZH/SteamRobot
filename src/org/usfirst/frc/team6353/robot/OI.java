@@ -18,24 +18,27 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+	
 	public Joystick mainJoystick;
 	public Joystick auxJoystick;
-	//public Button stopButton;
+	
 	public Button AbsRotateLeftButton;
 	public Button AbsRotateRightButton;
 	public Button ShootPrepButton;
 	public Button AimingButton;
 	public Button EmergStopButton;
+	public Button BallCollectButton;
 	
 	public OI(){
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
 		auxJoystick = new Joystick(RobotMap.AuxJoystickPort);
 		
-		AbsRotateLeftButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateLPort);
-		AbsRotateRightButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateRPort);
+		AbsRotateLeftButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateLButtonID);
+		AbsRotateRightButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateRButtonID);
 		EmergStopButton = new JoystickButton(mainJoystick, RobotMap.EmergStopButtonID);
 		ShootPrepButton = new JoystickButton(auxJoystick, RobotMap.ShootPrepareButtonID);
 		AimingButton = new JoystickButton(auxJoystick, RobotMap.AimingButtonID);
+		BallCollectButton = new JoystickButton(auxJoystick, RobotMap.BallCollectButtonID);
 		//stopButton = new JoystickButton(mainJoystick, RobotMap.JoystickStopButon);
 		
 		AbsRotateLeftButton.whileHeld(new DriveAbsRotateLeftCommand());
@@ -45,7 +48,6 @@ public class OI {
 		AimingButton.whileHeld(new AimingCommand());
 		
 		
-		//stopButton.whileHeld(new DriveStopCommand());
 	}
 
 	//// CREATING BUTTONS

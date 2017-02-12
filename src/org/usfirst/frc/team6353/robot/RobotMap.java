@@ -7,44 +7,40 @@ package org.usfirst.frc.team6353.robot;
  * floating around.
  */
 public class RobotMap {
-	// For example to map the left and right motors, you could define the
-	// following variables to use with your drivetrain subsystem.
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
-
-	// If you are using multiple modules, make sure to define both the port
-	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
+	
+	//Roborio Ports
 	public static final int DriverFrontLeftPort = 0;
 	public static final int DriverFrontRightPort = 1;
 	public static final int DriverRearLeftPort = 2;
 	public static final int DriverRearRightPort = 3;
+	public static final int ShootPrepareMotorPort = 9;
+	public static final int BallCollectVerticalMotorPort = 0;
+	public static final int BallCollectHorizontalMotorPort = 0;
 	
-	public static final int DriverHorizontalAxisPort = 0;
-	public static final int DriverVerticalAxisPort = 1;
-	public static final int DriverSpeedControlAxisPort = 3;
-	
-	public static final int EmergStopButtonID  = 11;
-	
+	//Joystick Ports
 	public static final int DriverJoystickPort = 0;
 	public static final int AuxJoystickPort = 1;
 	
-	public static final int DriverJoystickAbsRotateLPort = 3;
-	public static final int DriverJoystickAbsRotateRPort = 4;
+	//MainJoystick Button&Axis IDs
+	public static final int DriverHorizontalAxisPort = 0;
+	public static final int DriverVerticalAxisPort = 1;
+	public static final int DriverSpeedControlAxisPort = 3;
+	public static final int DriverJoystickAbsRotateLButtonID = 3;
+	public static final int DriverJoystickAbsRotateRButtonID = 4;
 	
+	//AuxJoystick Button&Axis IDs
 	public static final int ShootPrepareButtonID = 6;
 	public static final int AimingButtonID = 5;
+	public static final int BallCollectButtonID = 0;
+	public static final int EmergStopButtonID  = 11;
 	
-	public static final int ShootPrepareMotorPort = 9;
-	
+	//Camera
 	public static final int USBCameraWidth = 320;
 	public static final int USBCameraHeight = 240;
 	
+	//Gyro Constants
 	public static final double GyroStraightRotateToleranceDegree = 1;
-	
 	public static final double GyroStraightAdjustConstant = 0.2;
-	
 	public static final double GyroDegreeTolerance = 3;
 	public static final double GyroDegreeReduce = 40;
 	public static final double GyroTurnSpeedMinimum = 0.3;
@@ -52,12 +48,9 @@ public class RobotMap {
 	public static final double GyroStraightRotateAdjust = 0.2;
 	public static final double GyroStraightRotateTolerance = 1;
 	
-	public static final double JoystickAxisToleranceDegree = 0.2;
-	
-	public static final int JoystickStopButon = 1;
-	
-	public static final boolean IsSquareInput = true;
-	
+	//for tests
 	public static final double DriverSpeedControlConstant = 0.4;
+	
+	
 	
 }

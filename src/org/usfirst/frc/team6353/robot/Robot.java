@@ -30,21 +30,21 @@ import edu.wpi.first.wpilibj.vision.VisionThread;
 public class Robot extends IterativeRobot {
 
 	public static OI oi;
+	
 	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
 	public static final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
     public static final ShootSubsystem shootSubsystem = new ShootSubsystem();
     public static final BallCollectSubsystem ballCollectSubsystem = new BallCollectSubsystem();
-	public static final ShootPrepareSubsystem shootPrepareSubsystem = 
+    public static final GyroSubsystem gyroSubsystem = new GyroSubsystem();
+    public static final ShootPrepareSubsystem shootPrepareSubsystem = 
 			new ShootPrepareSubsystem();
-	public static final GyroSubsystem gyroSubsystem = new GyroSubsystem();
+	
 	
 	public static UsbCamera camera;
 	public static final Object imgLock = new Object();
 	public static VisionThread visionThread;
 	public static double centerX = 0.0;
 	public static double centerY = 0.0;
-	public static final int IMG_WIDTH = 320;
-	public static final int IMG_HEIGHT = 240;
 	
 	Chooser chooser;
 	
@@ -61,7 +61,7 @@ public class Robot extends IterativeRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		
 		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-		camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
+		camera.setResolution(RobotMap.USBCameraWidth, RobotMap.USBCameraHeight);
 		
 		visionThread = new VisionThread(camera, new GripPipeline(), pipeline -> {
 			if (!pipeline.filterContoursOutput().isEmpty()) {
