@@ -14,12 +14,10 @@ public class BallCollectSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-	private VictorSP verticalCollectWheel;
-	private VictorSP horiCollectWheel;
+	private VictorSP ballCollectWheel;
 	
 	public BallCollectSubsystem(){
-		verticalCollectWheel = new VictorSP(RobotMap.BallCollectVerticalMotorPort);
-		horiCollectWheel = new VictorSP(RobotMap.BallCollectHorizontalMotorPort);
+		ballCollectWheel = new VictorSP(RobotMap.BallCollectMotorPort);
 	}
     public void initDefaultCommand() {
     	setDefaultCommand(new BallCollectDefaultCommand());
@@ -28,13 +26,11 @@ public class BallCollectSubsystem extends Subsystem {
     }
     
     public void startCollecting(){
-    	verticalCollectWheel.setSpeed(0.5);
-    	horiCollectWheel.setSpeed(0.5);
+    	ballCollectWheel.setSpeed(0.5);
     }
     
     public void stop(){
-    	verticalCollectWheel.setSpeed(0);
-    	horiCollectWheel.setSpeed(0);
+    	ballCollectWheel.setSpeed(0);
     }
     
 }

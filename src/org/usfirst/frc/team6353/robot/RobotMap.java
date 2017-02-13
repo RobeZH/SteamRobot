@@ -14,8 +14,7 @@ public class RobotMap {
 	public static final int DriverRearLeftPort = 2;
 	public static final int DriverRearRightPort = 3;
 	public static final int ShootPrepareMotorPort = 9;
-	public static final int BallCollectVerticalMotorPort = 0;
-	public static final int BallCollectHorizontalMotorPort = 0;
+	public static final int BallCollectMotorPort = 0;
 	
 	//Joystick Ports
 	public static final int DriverJoystickPort = 0;
