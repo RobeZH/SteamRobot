@@ -26,12 +26,12 @@ public class RobotMap {
 	public static final int DriverSpeedControlAxisPort = 3;
 	public static final int DriverJoystickAbsRotateLButtonID = 3;
 	public static final int DriverJoystickAbsRotateRButtonID = 4;
+	public static final int EmergStopButtonID  = 11;
 	
 	//AuxJoystick Button&Axis IDs
 	public static final int ShootPrepareButtonID = 6;
-	public static final int AimingButtonID = 5;
-	public static final int BallCollectButtonID = 0;
-	public static final int EmergStopButtonID  = 11;
+	public static final int AimingButtonID = 2;
+	public static final int BallCollectButtonID = 5;
 	
 	//Camera
 	public static final int USBCameraWidth = 320;
