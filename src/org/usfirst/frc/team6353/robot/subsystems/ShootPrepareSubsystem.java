@@ -35,10 +35,10 @@ public class ShootPrepareSubsystem extends Subsystem {
     
     public void aiming() {
 		double centerX;
-		double centerY;
+		//double centerY;
 		synchronized (Robot.imgLock) {
 			centerX = Robot.centerX;
-			centerY = Robot.centerY;
+			//centerY = Robot.centerY;
 //			System.out.println("Trying to lock img..." + "X: " + centerX + " Y: " + centerY);
 			
 		}
