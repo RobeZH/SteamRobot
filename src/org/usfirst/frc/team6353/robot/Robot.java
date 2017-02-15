@@ -114,7 +114,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		System.out.println("Autonoumous Period...");
+		System.out.println("Autonoumous Period running");
 		Scheduler.getInstance().run();
 	}
 

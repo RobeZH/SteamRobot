@@ -30,8 +30,7 @@ public class ShootPrepareSubsystem extends Subsystem {
     }
     
     public void prepForShoot() {
-    	prepwheel.setSpeed(-0.5);
-    	//System.out.println("Executing...");
+    	prepwheel.setSpeed(-0.39);
     }
     
     public void aiming() {
@@ -40,7 +39,7 @@ public class ShootPrepareSubsystem extends Subsystem {
 		synchronized (Robot.imgLock) {
 			centerX = Robot.centerX;
 			centerY = Robot.centerY;
-			System.out.println("Trying to lock img..." + "X: " + centerX + " Y: " + centerY);
+//			System.out.println("Trying to lock img..." + "X: " + centerX + " Y: " + centerY);
 			
 		}
 		double turn = centerX - (RobotMap.USBCameraWidth / 2);

@@ -22,6 +22,7 @@ public class EmergStopCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	System.out.println("Emergy Stop");
     	double leftSpeed = -Robot.driveSubsystem.getLeftSpeed();
     	double rightSpeed = -Robot.driveSubsystem.getRightSpeed();
     	Robot.driveSubsystem.tankDrive(leftSpeed,rightSpeed);

@@ -10,15 +10,15 @@ public class RobotMap {
 	
 	//Roborio Ports
 	public static final int DriverFrontLeftPort = 0;
-	public static final int DriverFrontRightPort = 1;
-	public static final int DriverRearLeftPort = 2;
+	public static final int DriverFrontRightPort = 2;
+	public static final int DriverRearLeftPort = 1;
 	public static final int DriverRearRightPort = 3;
-	public static final int ShootPrepareMotorPort = 9;
-	public static final int BallCollectMotorPort = 0;
+	public static final int ShootPrepareMotorPort = 5;
+	public static final int BallCollectMotorPort = 4;
 	
 	//Joystick Ports
-	public static final int DriverJoystickPort = 0;
-	public static final int AuxJoystickPort = 1;
+	public static final int DriverJoystickPort = 1;
+	public static final int AuxJoystickPort = 0;
 	
 	//MainJoystick Button&Axis IDs
 	public static final int DriverHorizontalAxisPort = 0;
