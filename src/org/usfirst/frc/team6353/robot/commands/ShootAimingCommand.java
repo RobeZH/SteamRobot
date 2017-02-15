@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AimingCommand extends Command {
+public class ShootAimingCommand extends Command {
 
 	
-    public AimingCommand() {
+    public ShootAimingCommand() {
     	requires(Robot.shootPrepareSubsystem);
 //    	setTimeout(3.0);
         // Use requires() here to declare subsystem dependencies

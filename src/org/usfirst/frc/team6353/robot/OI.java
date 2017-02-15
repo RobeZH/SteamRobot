@@ -1,7 +1,7 @@
 package org.usfirst.frc.team6353.robot;
 
 import org.usfirst.frc.team6353.robot.RobotMap;
-import org.usfirst.frc.team6353.robot.commands.AimingCommand;
+import org.usfirst.frc.team6353.robot.commands.ShootAimingCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateLeftCommand;
 //import org.usfirst.frc.team6353.robot.commands.DriveStopCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateRightCommand;
@@ -45,7 +45,7 @@ public class OI {
 		AbsRotateRightButton.whileHeld(new DriveAbsRotateRightCommand());
 		EmergStopButton.whenPressed(new EmergStopCommand());
 		ShootPrepButton.whileHeld(new ShootPrepareCommand());
-		AimingButton.whileHeld(new AimingCommand());
+		AimingButton.whileHeld(new ShootAimingCommand());
 		
 		
 	}
