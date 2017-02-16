@@ -2,6 +2,7 @@ package org.usfirst.frc.team6353.robot;
 
 import org.usfirst.frc.team6353.robot.RobotMap;
 import org.usfirst.frc.team6353.robot.commands.ShootAimingCommand;
+import org.usfirst.frc.team6353.robot.commands.BallCollectCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateLeftCommand;
 //import org.usfirst.frc.team6353.robot.commands.DriveStopCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateRightCommand;
@@ -46,6 +47,7 @@ public class OI {
 		EmergStopButton.whenPressed(new EmergStopCommand());
 		ShootPrepButton.whileHeld(new ShootPrepareCommand());
 		AimingButton.whileHeld(new ShootAimingCommand());
+		BallCollectButton.whileHeld(new BallCollectCommand());
 		
 		
 	}
