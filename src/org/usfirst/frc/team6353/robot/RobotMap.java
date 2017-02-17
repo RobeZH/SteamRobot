@@ -18,8 +18,8 @@ public class RobotMap {
 	public static final int ShootMotorPort = 5;
 	
 	//Joystick Ports
-	public static final int DriverJoystickPort = 1;
-	public static final int AuxJoystickPort = 0;
+	public static final int DriverJoystickPort = 0;
+	public static final int AuxJoystickPort = 1;
 	
 	//MainJoystick Button&Axis IDs
 	public static final int DriverHorizontalAxisPort = 0;
@@ -31,6 +31,7 @@ public class RobotMap {
 	
 	//AuxJoystick Button&Axis IDs
 	public static final int ShootPrepareButtonID = 6;
+	public static final int ShootButtonID = 1;
 	public static final int AimingButtonID = 2;
 	public static final int BallCollectButtonID = 5;
 	

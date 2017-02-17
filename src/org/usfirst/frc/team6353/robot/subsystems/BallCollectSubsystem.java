@@ -26,7 +26,8 @@ public class BallCollectSubsystem extends Subsystem {
     }
     
     public void startCollecting(){
-    	ballCollectWheel.setSpeed(0.5);
+    	System.out.println("Collecting Balls");
+    	ballCollectWheel.setSpeed(-1.0);
     }
     
     public void stop(){

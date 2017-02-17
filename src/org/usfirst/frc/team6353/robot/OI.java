@@ -2,6 +2,7 @@ package org.usfirst.frc.team6353.robot;
 
 import org.usfirst.frc.team6353.robot.RobotMap;
 import org.usfirst.frc.team6353.robot.commands.ShootAimingCommand;
+import org.usfirst.frc.team6353.robot.commands.ShootHighCommand;
 import org.usfirst.frc.team6353.robot.commands.BallCollectCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateLeftCommand;
 //import org.usfirst.frc.team6353.robot.commands.DriveStopCommand;
@@ -26,6 +27,7 @@ public class OI {
 	public Button AbsRotateLeftButton;
 	public Button AbsRotateRightButton;
 	public Button ShootPrepButton;
+	public Button ShootButton;
 	public Button AimingButton;
 	public Button EmergStopButton;
 	public Button BallCollectButton;
@@ -40,12 +42,14 @@ public class OI {
 		ShootPrepButton = new JoystickButton(auxJoystick, RobotMap.ShootPrepareButtonID);
 		AimingButton = new JoystickButton(auxJoystick, RobotMap.AimingButtonID);
 		BallCollectButton = new JoystickButton(auxJoystick, RobotMap.BallCollectButtonID);
+		ShootButton = new JoystickButton(auxJoystick, RobotMap.ShootButtonID);
 		//stopButton = new JoystickButton(mainJoystick, RobotMap.JoystickStopButon);
 		
 		AbsRotateLeftButton.whileHeld(new DriveAbsRotateLeftCommand());
 		AbsRotateRightButton.whileHeld(new DriveAbsRotateRightCommand());
 		EmergStopButton.whenPressed(new EmergStopCommand());
 		ShootPrepButton.whileHeld(new ShootPrepareCommand());
+		ShootButton.whileHeld(new ShootHighCommand());
 		AimingButton.whileHeld(new ShootAimingCommand());
 		BallCollectButton.whileHeld(new BallCollectCommand());
 		
