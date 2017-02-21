@@ -12,7 +12,6 @@ public class DriveWithJoystickCommand extends Command {
     public DriveWithJoystickCommand() {
         // Use requires() here to declare subsystem dependencies
     	requires(Robot.driveSubsystem);
-//    	System.out.println("SetDriveSubsystem");
     }
 
     // Called just before this Command runs the first time

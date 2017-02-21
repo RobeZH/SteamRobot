@@ -22,7 +22,7 @@ public class ShootHighCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 //    	System.out.println("Start缺 to shoot...");
-    	Robot.shootSubsystem.changePositiveStatus();
+    	Robot.shootSubsystem.shoot();
     }
 
     // Make this return true when this Command no longer needs to run execute()

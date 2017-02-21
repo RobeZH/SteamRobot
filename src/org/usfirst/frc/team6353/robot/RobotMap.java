@@ -19,8 +19,8 @@ public class RobotMap {
 	public static final int ShootMotorPort = 7;
 	
 	//Joystick Ports
-	public static final int DriverJoystickPort = 1;
-	public static final int AuxJoystickPort = 0;
+	public static final int DriverJoystickPort = 0;
+	public static final int AuxJoystickPort = 1;
 	
 	//MainJoystick Button&Axis IDs
 	public static final int DriverHorizontalAxisPort = 0;

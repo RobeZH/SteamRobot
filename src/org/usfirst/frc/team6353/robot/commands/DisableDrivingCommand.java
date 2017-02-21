@@ -7,11 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class EnableDrivingDefaultCommand extends Command {
+public class DisableDrivingCommand extends Command {
 
-    public EnableDrivingDefaultCommand() {
-    	requires(Robot.driveEnableSubsystem);
-        // Use requires(976788) here to declare subsystem dependencies
+    public DisableDrivingCommand() {
+        // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
@@ -21,7 +20,7 @@ public class EnableDrivingDefaultCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveEnableSubsystem.driveDisable();
+    	Robot.driveSubsystem.disable();
     }
 
     // Make this return true when this Command no longer needs to run execute()

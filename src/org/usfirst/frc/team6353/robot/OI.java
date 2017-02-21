@@ -3,9 +3,12 @@ package org.usfirst.frc.team6353.robot;
 import org.usfirst.frc.team6353.robot.RobotMap;
 import org.usfirst.frc.team6353.robot.commands.ShootAimingCommand;
 import org.usfirst.frc.team6353.robot.commands.ShootHighCommand;
+import org.usfirst.frc.team6353.robot.commands.ShootHighDefaultCommand;
 import org.usfirst.frc.team6353.robot.commands.ShootHighReverseCommand;
 import org.usfirst.frc.team6353.robot.commands.BallCollectCommand;
+import org.usfirst.frc.team6353.robot.commands.BallCollectDefaultCommand;
 import org.usfirst.frc.team6353.robot.commands.BallCollectReverseCommand;
+import org.usfirst.frc.team6353.robot.commands.DisableDrivingCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateLeftCommand;
 //import org.usfirst.frc.team6353.robot.commands.DriveStopCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateRightCommand;
@@ -42,6 +45,7 @@ public class OI {
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
 		auxJoystick = new Joystick(RobotMap.AuxJoystickPort);
 		
+		//CREATING BUTTONS
 		EnableDrivingButton =  new JoystickButton(mainJoystick, RobotMap.EnableDrivingButtonID);
 		AbsRotateLeftButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateLButtonID);
 		AbsRotateRightButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateRButtonID);
@@ -53,14 +57,20 @@ public class OI {
 		BallCollectReverseButton = new JoystickButton(auxJoystick, RobotMap.BallCollectReverseButtonID);
 		ShootReverseButton = new JoystickButton(auxJoystick, RobotMap.ShootReverseButtonID);
 		
+		//TRIGGERING COMMANDS WITH BUTTONS
 		EnableDrivingButton.whileHeld(new EnableDrivingCommand());
+		EnableDrivingButton.whenReleased(new DisableDrivingCommand());
 		AbsRotateLeftButton.whileHeld(new DriveAbsRotateLeftCommand());
 		AbsRotateRightButton.whileHeld(new DriveAbsRotateRightCommand());
 		EmergStopButton.whenPressed(new EmergStopCommand());
+		
 		ShootPrepButton.whileHeld(new ShootPrepareCommand());
 		AimingButton.whileHeld(new ShootAimingCommand());
+		
 		ShootButton.whileHeld(new ShootHighCommand());
 		ShootReverseButton.whileHeld(new ShootHighReverseCommand());
+		
+		
 		BallCollectButton.whileHeld(new BallCollectCommand());
 		BallCollectReverseButton.whileHeld(new BallCollectReverseCommand());
 		

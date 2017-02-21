@@ -1,9 +1,9 @@
 package org.usfirst.frc.team6353.robot.subsystems;
 
 
-import org.usfirst.frc.team6353.robot.Robot;
 import org.usfirst.frc.team6353.robot.RobotMap;
-import org.usfirst.frc.team6353.robot.commands.DriveStopCommand;
+import org.usfirst.frc.team6353.robot.commands.DriveWithJoystickCommand;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -16,14 +16,15 @@ public class DriveSubsystem extends Subsystem {
 	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	VictorSP driveFrontLeft;
-	VictorSP driveFrontRight;
-	VictorSP driveRearLeft;
-	VictorSP driveRearRight;
-	RobotDrive robotDrive;
-	double leftSpeed = 0;
-	double rightSpeed = 0;
+	private VictorSP driveFrontLeft;
+	private VictorSP driveFrontRight;
+	private VictorSP driveRearLeft;
+	private VictorSP driveRearRight;
+	private boolean enabled = false;
+	private double leftSpeed = 0;
+	private double rightSpeed = 0;
 	
+	public RobotDrive robotDrive;
 	
 	public DriveSubsystem(){
 		System.out.println("DriveSubsystem Initializing");
@@ -35,14 +36,22 @@ public class DriveSubsystem extends Subsystem {
 	}
 	
     public void initDefaultCommand() {
-    	setDefaultCommand(new DriveStopCommand());
+    	setDefaultCommand(new DriveWithJoystickCommand());
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void stop(){
+    public void stop() {
     	System.out.println("DriveSubSys Stopping");
     	robotDrive.tankDrive(0, 0);
+    }
+    
+    public void enable() {
+    	enabled = true;
+    }
+    
+    public void disable() {
+    	enabled = false;
     }
     
 	public double getLeftSpeed() {
@@ -54,6 +63,7 @@ public class DriveSubsystem extends Subsystem {
 	}
     
     public void tankDrive(Joystick joy) {
+    	if(!enabled) return;
     	double x = joy.getRawAxis(RobotMap.DriverHorizontalAxisPort);
     	double y = joy.getRawAxis(RobotMap.DriverVerticalAxisPort);
     	double DistanceFromZero = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
@@ -95,22 +105,17 @@ public class DriveSubsystem extends Subsystem {
     		leftSpeed = 0;
     		rightSpeed = 0;
     	}
-//    	System.out.println("LSpeed: " + leftspeed);
-//    	System.out.println("RSpeed: " + rightspeed);
-//    	System.out.println("Speed Control Constant: " + controlspeedconstant);
-//    	System.out.println(controlspeedconstant + " " + Proportiontozero + " " + leftSpeed);
-//    	System.out.println(controlspeedconstant + " " + Proportiontozero + " " +  rightSpeed);
     	tankDrive(controlspeedconstant * Proportiontozero * leftSpeed,
     			controlspeedconstant * Proportiontozero * rightSpeed);		
     }
     
     public void tankDrive(double leftValue, double rightValue) {
+    	if(!enabled) return;
 //    	System.out.println("Tankdrive(a,b):"+leftValue+','+rightValue);
     	leftSpeed = leftValue;
     	rightSpeed = rightValue;
-    	int enableConstant = (Robot.driveEnableSubsystem.driveEnabled ? 1 : 0);
-		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant * leftValue * enableConstant,
-				RobotMap.DriverSpeedControlConstant * rightValue * enableConstant);
+		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant * leftValue,
+				RobotMap.DriverSpeedControlConstant * rightValue);
 	}
 
 	public void arcadeDrive(double speed, double rotateValue) {
@@ -118,15 +123,15 @@ public class DriveSubsystem extends Subsystem {
 	}
 	
 	public void AbsRotateLeft(Joystick joy) {
+		if(!enabled) return;
 		double controlSpeedConstant = - joy.getRawAxis(RobotMap.DriverSpeedControlAxisPort) / 2 + 1.0 / 2;
 		tankDrive( - controlSpeedConstant, controlSpeedConstant);
 	}
 	
 	public void AbsRotateRight(Joystick joy) {
+		if(!enabled) return;
 		double controlSpeedConstant = - joy.getRawAxis(RobotMap.DriverSpeedControlAxisPort) / 2 + 1.0 / 2;
 		tankDrive(controlSpeedConstant, - controlSpeedConstant);
 	}
-	
-	
 }
 
