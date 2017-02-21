@@ -21,8 +21,9 @@ public class ShootHighCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println("Start to shoot...");
-    	Robot.shootSubsystem.shoot();
+//    	System.out.println("Start to shoot...");
+    	Robot.shootSubsystem.changeStatus();
+    	Robot.shootSubsystem.startOrStopShooting();
     }
 
     // Make this return true when this Command no longer needs to run execute()

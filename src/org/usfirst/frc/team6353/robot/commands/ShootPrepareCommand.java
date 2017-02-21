@@ -21,7 +21,7 @@ public class ShootPrepareCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println("Start to prepforshoot...");
+//    	System.out.println("Start to prepforshoot...");
     	Robot.shootPrepareSubsystem.prepForShoot();
     }
 

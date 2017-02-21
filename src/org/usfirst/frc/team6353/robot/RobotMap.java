@@ -13,21 +13,24 @@ public class RobotMap {
 	public static final int DriverFrontRightPort = 2;
 	public static final int DriverRearLeftPort = 1;
 	public static final int DriverRearRightPort = 3;
-	public static final int ShootPrepareMotorPort = 7;
+	
 	public static final int BallCollectMotorPort = 4;
-	public static final int ShootMotorPort = 5;
+	public static final int ShootPrepareMotorPort = 5;
+	public static final int ShootMotorPort = 7;
 	
 	//Joystick Ports
-	public static final int DriverJoystickPort = 0;
-	public static final int AuxJoystickPort = 1;
+	public static final int DriverJoystickPort = 1;
+	public static final int AuxJoystickPort = 0;
 	
 	//MainJoystick Button&Axis IDs
 	public static final int DriverHorizontalAxisPort = 0;
 	public static final int DriverVerticalAxisPort = 1;
 	public static final int DriverSpeedControlAxisPort = 3;
+	
 	public static final int DriverJoystickAbsRotateLButtonID = 3;
 	public static final int DriverJoystickAbsRotateRButtonID = 4;
-	public static final int EmergStopButtonID  = 11;
+	public static final int EnableDrivingButtonID = 1;
+	public static final int EmergStopButtonID = 11;
 	
 	//AuxJoystick Button&Axis IDs
 	public static final int ShootPrepareButtonID = 6;
@@ -50,7 +53,7 @@ public class RobotMap {
 	public static final double GyroStraightRotateTolerance = 1;
 	
 	//for tests
-	public static final double DriverSpeedControlConstant = 0.4;
+	public static final double DriverSpeedControlConstant = 0.8;
 	
 	
 	

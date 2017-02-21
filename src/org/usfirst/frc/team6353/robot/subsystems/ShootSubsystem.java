@@ -16,6 +16,7 @@ public class ShootSubsystem extends Subsystem {
     // here. Call these from Commands.
 
 	private VictorSP shootWheel;
+	private boolean status;
 	
 	public ShootSubsystem(){
 		shootWheel = new VictorSP(RobotMap.ShootMotorPort);
@@ -27,13 +28,24 @@ public class ShootSubsystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
+    public void changeStatus(){
+    	status = !status;
+    }
+    
     public void shoot(){
-    	System.out.println("Shooting...");
-    	shootWheel.setSpeed(-0.4);
+//    	System.out.println("Shooting...");
+    	shootWheel.setSpeed(-1.0);
     }
     
     public void stop(){
     	shootWheel.setSpeed(0);
+    }
+    
+    public void startOrStopShooting() {
+    	if(status)
+    		shoot();
+    	else
+    		stop();
     }
 }
 

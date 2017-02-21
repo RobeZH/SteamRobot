@@ -8,6 +8,7 @@ import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateLeftCommand;
 //import org.usfirst.frc.team6353.robot.commands.DriveStopCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateRightCommand;
 import org.usfirst.frc.team6353.robot.commands.EmergStopCommand;
+import org.usfirst.frc.team6353.robot.commands.EnableDrivingCommand;
 import org.usfirst.frc.team6353.robot.commands.ShootPrepareCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -24,6 +25,7 @@ public class OI {
 	public Joystick mainJoystick;
 	public Joystick auxJoystick;
 	
+	public Button EnableDrivingButton;
 	public Button AbsRotateLeftButton;
 	public Button AbsRotateRightButton;
 	public Button ShootPrepButton;
@@ -36,22 +38,23 @@ public class OI {
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
 		auxJoystick = new Joystick(RobotMap.AuxJoystickPort);
 		
+		EnableDrivingButton =  new JoystickButton(mainJoystick, RobotMap.EnableDrivingButtonID);
 		AbsRotateLeftButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateLButtonID);
 		AbsRotateRightButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateRButtonID);
 		EmergStopButton = new JoystickButton(mainJoystick, RobotMap.EmergStopButtonID);
 		ShootPrepButton = new JoystickButton(auxJoystick, RobotMap.ShootPrepareButtonID);
 		AimingButton = new JoystickButton(auxJoystick, RobotMap.AimingButtonID);
-		BallCollectButton = new JoystickButton(auxJoystick, RobotMap.BallCollectButtonID);
 		ShootButton = new JoystickButton(auxJoystick, RobotMap.ShootButtonID);
-		//stopButton = new JoystickButton(mainJoystick, RobotMap.JoystickStopButon);
+		BallCollectButton = new JoystickButton(auxJoystick, RobotMap.BallCollectButtonID);
 		
+		EnableDrivingButton.whileHeld(new EnableDrivingCommand());
 		AbsRotateLeftButton.whileHeld(new DriveAbsRotateLeftCommand());
 		AbsRotateRightButton.whileHeld(new DriveAbsRotateRightCommand());
 		EmergStopButton.whenPressed(new EmergStopCommand());
 		ShootPrepButton.whileHeld(new ShootPrepareCommand());
-		ShootButton.whileHeld(new ShootHighCommand());
 		AimingButton.whileHeld(new ShootAimingCommand());
-		BallCollectButton.whileHeld(new BallCollectCommand());
+		ShootButton.whenPressed(new ShootHighCommand());
+		BallCollectButton.whenPressed(new BallCollectCommand());
 		
 		
 	}

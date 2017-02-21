@@ -30,7 +30,7 @@ public class ShootPrepareSubsystem extends Subsystem {
     }
     
     public void prepForShoot() {
-    	System.out.println("Prop Spinning");
+//    	System.out.println("Prop Spinning");
     	prepwheel.setSpeed(-0.50);
     }
     

@@ -13,25 +13,38 @@ public class BallCollectSubsystem extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-
+	
+	private boolean status = false;
 	private VictorSP ballCollectWheel;
 	
 	public BallCollectSubsystem(){
 		ballCollectWheel = new VictorSP(RobotMap.BallCollectMotorPort);
 	}
+	
     public void initDefaultCommand() {
     	setDefaultCommand(new BallCollectDefaultCommand());
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void startCollecting(){
-    	System.out.println("Collecting Balls");
-    	ballCollectWheel.setSpeed(-1.0);
+    public void changeStatus() {
+    	status = !status;
+    }
+    
+    public void collect() {
+//    	System.out.println("Collecting Balls");
+    	ballCollectWheel.setSpeed(-0.8);
     }
     
     public void stop(){
     	ballCollectWheel.setSpeed(0);
+    }
+    
+    public void startOrStopCollecting(){
+    	if(status)
+    		collect();
+    	else
+    		stop();
     }
     
 }
