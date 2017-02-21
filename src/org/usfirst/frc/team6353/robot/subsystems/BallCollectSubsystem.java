@@ -14,7 +14,7 @@ public class BallCollectSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	private boolean status = false;
+	private int status = 0;
 	private VictorSP ballCollectWheel;
 	
 	public BallCollectSubsystem(){
@@ -27,8 +27,16 @@ public class BallCollectSubsystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void changeStatus() {
-    	status = !status;
+    public void changePositiveStatus() {
+    	status = ( status == 1 ? 0 : 1 );
+    }
+    
+    public void changeNegativeStatus() {
+    	status = ( status == -1 ? 0 : -1 );
+    }
+    
+    public void run(){
+    	ballCollectWheel.setSpeed(-0.8 * status);
     }
     
     public void collect() {
@@ -40,12 +48,7 @@ public class BallCollectSubsystem extends Subsystem {
     	ballCollectWheel.setSpeed(0);
     }
     
-    public void startOrStopCollecting(){
-    	if(status)
-    		collect();
-    	else
-    		stop();
-    }
+   
     
 }
 

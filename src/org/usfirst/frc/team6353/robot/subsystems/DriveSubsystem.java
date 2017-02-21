@@ -1,10 +1,9 @@
 package org.usfirst.frc.team6353.robot.subsystems;
 
 
+import org.usfirst.frc.team6353.robot.Robot;
 import org.usfirst.frc.team6353.robot.RobotMap;
 import org.usfirst.frc.team6353.robot.commands.DriveStopCommand;
-import org.usfirst.frc.team6353.robot.commands.DriveWithJoystickCommand;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -24,6 +23,7 @@ public class DriveSubsystem extends Subsystem {
 	RobotDrive robotDrive;
 	double leftSpeed = 0;
 	double rightSpeed = 0;
+	
 	
 	public DriveSubsystem(){
 		System.out.println("DriveSubsystem Initializing");
@@ -108,8 +108,9 @@ public class DriveSubsystem extends Subsystem {
 //    	System.out.println("Tankdrive(a,b):"+leftValue+','+rightValue);
     	leftSpeed = leftValue;
     	rightSpeed = rightValue;
-		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant * leftValue,
-				RobotMap.DriverSpeedControlConstant * rightValue);
+    	int enableConstant = (Robot.driveEnableSubsystem.driveEnabled ? 1 : 0);
+		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant * leftValue * enableConstant,
+				RobotMap.DriverSpeedControlConstant * rightValue * enableConstant);
 	}
 
 	public void arcadeDrive(double speed, double rotateValue) {
@@ -125,5 +126,7 @@ public class DriveSubsystem extends Subsystem {
 		double controlSpeedConstant = - joy.getRawAxis(RobotMap.DriverSpeedControlAxisPort) / 2 + 1.0 / 2;
 		tankDrive(controlSpeedConstant, - controlSpeedConstant);
 	}
+	
+	
 }
 

@@ -2,8 +2,6 @@ package org.usfirst.frc.team6353.robot.subsystems;
 
 import org.usfirst.frc.team6353.robot.RobotMap;
 import org.usfirst.frc.team6353.robot.commands.ShootHighDefaultCommand;
-import org.usfirst.frc.team6353.robot.commands.ShootPrepareDefaultCommand;
-
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -16,7 +14,7 @@ public class ShootSubsystem extends Subsystem {
     // here. Call these from Commands.
 
 	private VictorSP shootWheel;
-	private boolean status;
+	private int status = 0;
 	
 	public ShootSubsystem(){
 		shootWheel = new VictorSP(RobotMap.ShootMotorPort);
@@ -28,9 +26,6 @@ public class ShootSubsystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void changeStatus(){
-    	status = !status;
-    }
     
     public void shoot(){
 //    	System.out.println("Shooting...");
@@ -41,11 +36,17 @@ public class ShootSubsystem extends Subsystem {
     	shootWheel.setSpeed(0);
     }
     
-    public void startOrStopShooting() {
-    	if(status)
-    		shoot();
-    	else
-    		stop();
+    public void changePositiveStatus() {
+    	status = ( status == 1 ? 0 : 1 );
     }
+    
+    public void changeNegativeStatus() {
+    	status = ( status == -1 ? 0 : -1 );
+    }
+    
+    public void run(){
+    	shootWheel.setSpeed(-0.8 * status);
+    }
+    
 }
 

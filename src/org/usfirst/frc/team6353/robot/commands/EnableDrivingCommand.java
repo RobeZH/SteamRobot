@@ -12,7 +12,7 @@ public class EnableDrivingCommand extends Command {
     public EnableDrivingCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	require()
+    	requires(Robot.driveEnableSubsystem);
     }
 
     // Called just before this Command runs the first time
@@ -21,9 +21,7 @@ public class EnableDrivingCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	DriveAbsRotateRightCommand.enable();
-    	DriveAbsRotateLeftCommand.enable();
-    	Robot.driveSubsystem.tankDrive(Robot.oi.mainJoystick);
+    	Robot.driveEnableSubsystem.driveEnable();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,9 +31,7 @@ public class EnableDrivingCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	DriveAbsRotateRightCommand.disable();
-    	DriveAbsRotateLeftCommand.disable();
-    	Robot.driveSubsystem.stop();
+    	
     }
 
     // Called when another command which requires one or more of the same

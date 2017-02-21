@@ -8,6 +8,7 @@ import org.usfirst.frc.team6353.robot.grip.GripPipeline;
 import org.usfirst.frc.team6353.robot.subsystems.ShootPrepareSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.BallCollectSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.ClimbSubsystem;
+import org.usfirst.frc.team6353.robot.subsystems.DriveEnableSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.GyroSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.ShootSubsystem;
@@ -35,6 +36,7 @@ public class Robot extends IterativeRobot {
 	public static final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
     public static final ShootSubsystem shootSubsystem = new ShootSubsystem();
     public static final BallCollectSubsystem ballCollectSubsystem = new BallCollectSubsystem();
+    public static final DriveEnableSubsystem driveEnableSubsystem = new DriveEnableSubsystem();
     public static final GyroSubsystem gyroSubsystem = new GyroSubsystem();
     public static final ShootPrepareSubsystem shootPrepareSubsystem = 
 			new ShootPrepareSubsystem();

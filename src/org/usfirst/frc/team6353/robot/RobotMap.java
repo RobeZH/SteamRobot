@@ -33,10 +33,13 @@ public class RobotMap {
 	public static final int EmergStopButtonID = 11;
 	
 	//AuxJoystick Button&Axis IDs
-	public static final int ShootPrepareButtonID = 6;
-	public static final int ShootButtonID = 1;
-	public static final int AimingButtonID = 2;
-	public static final int BallCollectButtonID = 5;
+	public static final int ShootPrepareButtonID = 1;
+	public static final int ShootButtonID = 2;
+	public static final int ShootReverseButtonID = 9;
+	public static final int AimingButtonID = 3;
+	public static final int BallCollectButtonID = 6;
+	public static final int BallCollectReverseButtonID = 5;
+	
 	
 	//Camera
 	public static final int USBCameraWidth = 320;
@@ -54,6 +57,7 @@ public class RobotMap {
 	
 	//for tests
 	public static final double DriverSpeedControlConstant = 0.8;
+	
 	
 	
 	

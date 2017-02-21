@@ -7,10 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ShootHighCommand extends Command {
+public class ShootHighReverseCommand extends Command {
 
-    public ShootHighCommand() {
-    	requires(Robot.shootSubsystem);
+    public ShootHighReverseCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -21,8 +20,7 @@ public class ShootHighCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//    	System.out.println("Start缺 to shoot...");
-    	Robot.shootSubsystem.changePositiveStatus();
+    	Robot.shootSubsystem.changeNegativeStatus();
     }
 
     // Make this return true when this Command no longer needs to run execute()
