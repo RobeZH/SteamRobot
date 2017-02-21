@@ -21,13 +21,15 @@ public class ShootPrepareCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.shootPrepareSubsystem.resetFinish();
 //    	System.out.println("Start to prepforshoot...");
-    	Robot.shootPrepareSubsystem.prepForShoot();
+    	Robot.shootPrepareSubsystem.changeStatus();
+    	Robot.shootPrepareSubsystem.Finish();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Robot.shootPrepareSubsystem.Finished();
     }
 
     // Called once after isFinished returns true

@@ -15,6 +15,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class ShootPrepareSubsystem extends Subsystem {
 	
 	private VictorSP prepwheel;
+	private boolean status;
+	private boolean finished;
 	
 	public ShootPrepareSubsystem() {
 		prepwheel = new VictorSP(RobotMap.ShootPrepareMotorPort);
@@ -60,5 +62,30 @@ public class ShootPrepareSubsystem extends Subsystem {
     	prepwheel.setSpeed(0);
     	
     }
+    
+    public boolean getStatus(){
+    	return status;
+    }
+    
+    public void changeStatus() {
+    	status = !status;
+    }
+    
+    public void run(){
+    	prepwheel.setSpeed(-0.8 * (status ? 1 : 0));
+    }
+    
+    public void resetFinish(){
+    	finished = false;
+    }
+    
+    
+    public void Finish(){
+    	finished = true;
+    }
+
+	public boolean Finished() {
+		return finished;
+	}
 }
 
