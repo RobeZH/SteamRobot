@@ -20,9 +20,11 @@ public class DriveSubsystem extends Subsystem {
 	private VictorSP driveFrontRight;
 	private VictorSP driveRearLeft;
 	private VictorSP driveRearRight;
-	private boolean enabled = false;
+	private boolean status = false;
+	private boolean finished = false;
 	private double leftSpeed = 0;
 	private double rightSpeed = 0;
+	private int enableconstant = 0;
 	
 	public RobotDrive robotDrive;
 	
@@ -46,13 +48,7 @@ public class DriveSubsystem extends Subsystem {
     	robotDrive.tankDrive(0, 0);
     }
     
-    public void enable() {
-    	enabled = true;
-    }
     
-    public void disable() {
-    	enabled = false;
-    }
     
 	public double getLeftSpeed() {
 		return leftSpeed;
@@ -112,10 +108,11 @@ public class DriveSubsystem extends Subsystem {
     public void tankDrive(double leftValue, double rightValue) {
 //    	if(!enabled) return;
 //    	System.out.println("Tankdrive(a,b):"+leftValue+','+rightValue);
+    	enableconstant = (status ? 1 : 0);
     	leftSpeed = leftValue;
     	rightSpeed = rightValue;
-		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant * leftValue,
-				RobotMap.DriverSpeedControlConstant * rightValue);
+		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant * leftValue * enableconstant,
+				RobotMap.DriverSpeedControlConstant * rightValue * enableconstant);
 	}
 
 	public void arcadeDrive(double speed, double rotateValue) {
@@ -132,6 +129,29 @@ public class DriveSubsystem extends Subsystem {
 //		if(!enabled) return;
 		double controlSpeedConstant = - joy.getRawAxis(RobotMap.DriverSpeedControlAxisPort) / 2 + 1.0 / 2;
 		tankDrive(controlSpeedConstant, - controlSpeedConstant);
+	}
+	
+	public boolean getStatus(){
+    	return status;
+    }
+    
+    public void changeStatus() {
+    	status = !status;
+    }
+    
+    
+    
+    public void resetFinish(){
+    	finished = false;
+    }
+    
+    
+    public void Finish(){
+    	finished = true;
+    }
+
+	public boolean Finished() {
+		return finished;
 	}
 }
 

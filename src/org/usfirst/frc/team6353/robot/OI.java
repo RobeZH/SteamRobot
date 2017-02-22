@@ -3,10 +3,8 @@ package org.usfirst.frc.team6353.robot;
 import org.usfirst.frc.team6353.robot.RobotMap;
 import org.usfirst.frc.team6353.robot.commands.ShootAimingCommand;
 import org.usfirst.frc.team6353.robot.commands.ShootHighCommand;
-import org.usfirst.frc.team6353.robot.commands.ShootHighDefaultCommand;
 import org.usfirst.frc.team6353.robot.commands.ShootHighReverseCommand;
 import org.usfirst.frc.team6353.robot.commands.BallCollectCommand;
-import org.usfirst.frc.team6353.robot.commands.BallCollectDefaultCommand;
 import org.usfirst.frc.team6353.robot.commands.BallCollectReverseCommand;
 import org.usfirst.frc.team6353.robot.commands.DisableDrivingCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateLeftCommand;
@@ -58,7 +56,7 @@ public class OI {
 		ShootReverseButton = new JoystickButton(auxJoystick, RobotMap.ShootReverseButtonID);
 		
 		//TRIGGERING COMMANDS WITH BUTTONS
-		EnableDrivingButton.whileHeld(new EnableDrivingCommand());
+		EnableDrivingButton.whenPressed(new EnableDrivingCommand());
 		EnableDrivingButton.whenReleased(new DisableDrivingCommand());
 		AbsRotateLeftButton.whileHeld(new DriveAbsRotateLeftCommand());
 		AbsRotateRightButton.whileHeld(new DriveAbsRotateRightCommand());

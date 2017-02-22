@@ -20,14 +20,16 @@ public class DisableDrivingCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//    	System.out.p
-    	Robot.driveSubsystem.disable();
+    	Robot.driveSubsystem.resetFinish();
+    	Robot.driveSubsystem.changeStatus();
+    	Robot.driveSubsystem.Finish();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Robot.driveSubsystem.Finished();
     }
+
 
     // Called once after isFinished returns true
     protected void end() {
