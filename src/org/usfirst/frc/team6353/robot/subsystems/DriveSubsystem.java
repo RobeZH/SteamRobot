@@ -63,7 +63,7 @@ public class DriveSubsystem extends Subsystem {
 	}
     
     public void tankDrive(Joystick joy) {
-    	if(!enabled) return;
+//    	if(!enabled) return;
     	double x = joy.getRawAxis(RobotMap.DriverHorizontalAxisPort);
     	double y = joy.getRawAxis(RobotMap.DriverVerticalAxisPort);
     	double DistanceFromZero = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
@@ -110,7 +110,7 @@ public class DriveSubsystem extends Subsystem {
     }
     
     public void tankDrive(double leftValue, double rightValue) {
-    	if(!enabled) return;
+//    	if(!enabled) return;
 //    	System.out.println("Tankdrive(a,b):"+leftValue+','+rightValue);
     	leftSpeed = leftValue;
     	rightSpeed = rightValue;
@@ -123,13 +123,13 @@ public class DriveSubsystem extends Subsystem {
 	}
 	
 	public void AbsRotateLeft(Joystick joy) {
-		if(!enabled) return;
+//		if(!enabled) return;
 		double controlSpeedConstant = - joy.getRawAxis(RobotMap.DriverSpeedControlAxisPort) / 2 + 1.0 / 2;
 		tankDrive( - controlSpeedConstant, controlSpeedConstant);
 	}
 	
 	public void AbsRotateRight(Joystick joy) {
-		if(!enabled) return;
+//		if(!enabled) return;
 		double controlSpeedConstant = - joy.getRawAxis(RobotMap.DriverSpeedControlAxisPort) / 2 + 1.0 / 2;
 		tankDrive(controlSpeedConstant, - controlSpeedConstant);
 	}

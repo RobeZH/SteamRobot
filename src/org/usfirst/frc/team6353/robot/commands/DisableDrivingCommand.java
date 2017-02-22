@@ -20,6 +20,7 @@ public class DisableDrivingCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+//    	System.out.p
     	Robot.driveSubsystem.disable();
     }
 

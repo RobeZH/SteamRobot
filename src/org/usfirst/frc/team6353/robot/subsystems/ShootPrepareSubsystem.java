@@ -72,7 +72,7 @@ public class ShootPrepareSubsystem extends Subsystem {
     }
     
     public void run(){
-    	prepwheel.setSpeed(-0.8 * (status ? 1 : 0));
+    	prepwheel.setSpeed(-0.5 * (status ? 1 : 0));
     }
     
     public void resetFinish(){

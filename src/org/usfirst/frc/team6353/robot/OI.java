@@ -64,7 +64,7 @@ public class OI {
 		AbsRotateRightButton.whileHeld(new DriveAbsRotateRightCommand());
 		EmergStopButton.whenPressed(new EmergStopCommand());
 		
-		ShootPrepButton.whileHeld(new ShootPrepareCommand());
+		ShootPrepButton.whenPressed(new ShootPrepareCommand());
 		AimingButton.whileHeld(new ShootAimingCommand());
 		
 		ShootButton.whileHeld(new ShootHighCommand());
