@@ -32,7 +32,7 @@ public class BallCollectSubsystem extends Subsystem {
     }
     
     public void reverse() {
-    	ballCollectWheel.setSpeed(0.6);
+    	ballCollectWheel.setSpeed(0.7);
     }
     
     public void stop() {
