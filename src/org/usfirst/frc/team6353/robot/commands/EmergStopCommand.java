@@ -13,7 +13,7 @@ public class EmergStopCommand extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.driveSubsystem);
-    	setTimeout(.2);
+//   	setTimeout(2.5);
     }
 
     // Called just before this Command runs the first time
@@ -23,15 +23,18 @@ public class EmergStopCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	System.out.println("Emergy Stop");
-    	double leftSpeed = -Robot.driveSubsystem.getLeftSpeed();
-    	double rightSpeed = -Robot.driveSubsystem.getRightSpeed();
-    	Robot.driveSubsystem.tankDrive(leftSpeed,rightSpeed);
-    	
+    	if(timeSinceInitialized() < 0.2) {
+    		double leftSpeed = -Robot.driveSubsystem.getLeftSpeed();
+    		double rightSpeed = -Robot.driveSubsystem.getRightSpeed();
+    		Robot.driveSubsystem.tankDrive(leftSpeed,rightSpeed);
+    	}
+    	else
+    		Robot.driveSubsystem.tankDrive(0,0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;//isTimedOut();
     }
 
     // Called once after isFinished returns true

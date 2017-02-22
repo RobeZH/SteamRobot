@@ -48,8 +48,6 @@ public class DriveSubsystem extends Subsystem {
     	robotDrive.tankDrive(0, 0);
     }
     
-    
-    
 	public double getLeftSpeed() {
 		return leftSpeed;
 	}
@@ -138,8 +136,6 @@ public class DriveSubsystem extends Subsystem {
     public void changeStatus() {
     	status = !status;
     }
-    
-    
     
     public void resetFinish(){
     	finished = false;

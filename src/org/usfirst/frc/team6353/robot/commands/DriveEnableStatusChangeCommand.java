@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DisableDrivingCommand extends Command {
+public class DriveEnableStatusChangeCommand extends Command {
 
-    public DisableDrivingCommand() {
+    public DriveEnableStatusChangeCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -29,7 +29,6 @@ public class DisableDrivingCommand extends Command {
     protected boolean isFinished() {
         return Robot.driveSubsystem.Finished();
     }
-
 
     // Called once after isFinished returns true
     protected void end() {

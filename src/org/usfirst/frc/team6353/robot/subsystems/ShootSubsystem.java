@@ -28,7 +28,7 @@ public class ShootSubsystem extends Subsystem {
     
     public void shoot(){
 //    	System.out.println("Shooting...");
-    	shootWheel.setSpeed(-1.0);
+    	shootWheel.setSpeed(-0.8);
     }
     
     public void reverse(){
