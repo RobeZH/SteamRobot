@@ -17,7 +17,7 @@ public class RobotMap {
 	public static final int BallCollectMotorPort = 4;
 	public static final int ShootPrepareMotorPort = 5;
 	public static final int ShootMotorPort = 7;
-	public static final int ClimbMotorPort = 0;
+	public static final int ClimbMotorPort = 6;
 	
 	//Joystick Ports
 	public static final int DriverJoystickPort = 0;
@@ -60,7 +60,8 @@ public class RobotMap {
 	public static final double DriverSpeedControlConstant = 0.8;
 	
 	
-	
+	//motor speed
+	public static final double ClimbWheelSpeed = 1;
 	
 	
 	

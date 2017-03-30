@@ -22,7 +22,7 @@ public class ClimbDefaultCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.climbSubsystem.run();
+    	Robot.climbSubsystem.run(Robot.oi.mainJoystick);
     	
     }
 
