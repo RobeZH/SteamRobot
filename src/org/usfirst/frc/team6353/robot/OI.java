@@ -6,6 +6,7 @@ import org.usfirst.frc.team6353.robot.commands.ShootHighCommand;
 import org.usfirst.frc.team6353.robot.commands.ShootHighReverseCommand;
 import org.usfirst.frc.team6353.robot.commands.BallCollectCommand;
 import org.usfirst.frc.team6353.robot.commands.BallCollectReverseCommand;
+import org.usfirst.frc.team6353.robot.commands.ClimbCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateLeftCommand;
 //import org.usfirst.frc.team6353.robot.commands.DriveStopCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateRightCommand;
@@ -37,6 +38,7 @@ public class OI {
 	public Button EmergStopButton;
 	public Button BallCollectButton;
 	public Button BallCollectReverseButton;
+	public Button ClimbButton;
 	
 	public OI(){
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
@@ -53,7 +55,7 @@ public class OI {
 		BallCollectButton = new JoystickButton(auxJoystick, RobotMap.BallCollectButtonID);
 		BallCollectReverseButton = new JoystickButton(auxJoystick, RobotMap.BallCollectReverseButtonID);
 		ShootReverseButton = new JoystickButton(auxJoystick, RobotMap.ShootReverseButtonID);
-		
+		ClimbButton = new JoystickButton(auxJoystick, RobotMap.ClimbButtonID);
 		//TRIGGERING COMMANDS WITH BUTTONS
 		EnableDrivingButton.whenPressed(new DriveEnableStatusChangeCommand());
 		EnableDrivingButton.whenReleased(new DriveEnableStatusChangeCommand());
@@ -61,17 +63,17 @@ public class OI {
 		AbsRotateRightButton.whileHeld(new DriveAbsRotateRightCommand());
 		EmergStopButton.whileHeld(new EmergStopCommand());
 		
+		
 		ShootPrepButton.whenPressed(new ShootPrepareCommand());
 //		AimingButton.whileHeld(new ShootAimingCommand());
 		
 		ShootButton.whileHeld(new ShootHighCommand());
 		ShootReverseButton.whileHeld(new ShootHighReverseCommand());
 		
-		
 		BallCollectButton.whileHeld(new BallCollectCommand());
 		BallCollectReverseButton.whileHeld(new BallCollectReverseCommand());
 		
-		
+		ClimbButton.whenPressed(new ClimbCommand());
 	}
 
 	//// CREATING BUTTONS

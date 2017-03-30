@@ -17,6 +17,7 @@ public class RobotMap {
 	public static final int BallCollectMotorPort = 4;
 	public static final int ShootPrepareMotorPort = 5;
 	public static final int ShootMotorPort = 7;
+	public static final int ClimbMotorPort = 0;
 	
 	//Joystick Ports
 	public static final int DriverJoystickPort = 0;
@@ -39,7 +40,7 @@ public class RobotMap {
 	public static final int AimingButtonID = 3;
 	public static final int BallCollectButtonID = 6;
 	public static final int BallCollectReverseButtonID = 5;
-	
+	public static final int ClimbButtonID = 0;
 	
 	//Camera
 	public static final int USBCameraWidth = 320;
@@ -57,6 +58,8 @@ public class RobotMap {
 	
 	//for tests
 	public static final double DriverSpeedControlConstant = 0.8;
+	
+	
 	
 	
 	
