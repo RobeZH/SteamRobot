@@ -49,6 +49,7 @@ public class OI {
 		AbsRotateLeftButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateLButtonID);
 		AbsRotateRightButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateRButtonID);
 		EmergStopButton = new JoystickButton(mainJoystick, RobotMap.EmergStopButtonID);
+		
 		ShootPrepButton = new JoystickButton(auxJoystick, RobotMap.ShootPrepareButtonID);
 //		AimingButton = new JoystickButton(auxJoystick, RobotMap.AimingButtonID);
 		ShootButton = new JoystickButton(auxJoystick, RobotMap.ShootButtonID);
@@ -57,12 +58,12 @@ public class OI {
 		ShootReverseButton = new JoystickButton(auxJoystick, RobotMap.ShootReverseButtonID);
 		ClimbButton = new JoystickButton(auxJoystick, RobotMap.ClimbButtonID);
 		//TRIGGERING COMMANDS WITH BUTTONS
+		
 		EnableDrivingButton.whenPressed(new DriveEnableStatusChangeCommand());
 		EnableDrivingButton.whenReleased(new DriveEnableStatusChangeCommand());
 		AbsRotateLeftButton.whileHeld(new DriveAbsRotateLeftCommand());
 		AbsRotateRightButton.whileHeld(new DriveAbsRotateRightCommand());
 		EmergStopButton.whileHeld(new EmergStopCommand());
-		
 		
 		ShootPrepButton.whenPressed(new ShootPrepareCommand());
 //		AimingButton.whileHeld(new ShootAimingCommand());
