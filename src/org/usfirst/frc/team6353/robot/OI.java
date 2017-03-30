@@ -33,7 +33,7 @@ public class OI {
 	public Button ShootPrepButton;
 	public Button ShootButton;
 	public Button ShootReverseButton;
-	public Button AimingButton;
+//	public Button AimingButton;
 	public Button EmergStopButton;
 	public Button BallCollectButton;
 	public Button BallCollectReverseButton;
@@ -48,7 +48,7 @@ public class OI {
 		AbsRotateRightButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateRButtonID);
 		EmergStopButton = new JoystickButton(mainJoystick, RobotMap.EmergStopButtonID);
 		ShootPrepButton = new JoystickButton(auxJoystick, RobotMap.ShootPrepareButtonID);
-		AimingButton = new JoystickButton(auxJoystick, RobotMap.AimingButtonID);
+//		AimingButton = new JoystickButton(auxJoystick, RobotMap.AimingButtonID);
 		ShootButton = new JoystickButton(auxJoystick, RobotMap.ShootButtonID);
 		BallCollectButton = new JoystickButton(auxJoystick, RobotMap.BallCollectButtonID);
 		BallCollectReverseButton = new JoystickButton(auxJoystick, RobotMap.BallCollectReverseButtonID);
@@ -62,7 +62,7 @@ public class OI {
 		EmergStopButton.whileHeld(new EmergStopCommand());
 		
 		ShootPrepButton.whenPressed(new ShootPrepareCommand());
-		AimingButton.whileHeld(new ShootAimingCommand());
+//		AimingButton.whileHeld(new ShootAimingCommand());
 		
 		ShootButton.whileHeld(new ShootHighCommand());
 		ShootReverseButton.whileHeld(new ShootHighReverseCommand());
