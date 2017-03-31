@@ -32,10 +32,10 @@ public class RobotMap {
 	public static final int DriverJoystickAbsRotateRButtonID = 4;
 	public static final int EnableDrivingButtonID = 1;
 	public static final int EmergStopButtonID = 11;
-	public static final int ClimbSlowButtonID = 2147483647;
-	public static final int ClimbFastButtonID = 2147483647;
-	public static final int ClimbReverseButtonID = 2147483647;
-	
+	public static final int ClimbSlowButtonID = 8;
+	public static final int ClimbFastButtonID = 10;
+	public static final int ClimbReverseButtonID = 12;
+		
 	//AuxJoystick Button&Axis IDs
 	public static final int ShootPrepareButtonID = 5;
 	public static final int ShootButtonID = 6;
