@@ -1,8 +1,5 @@
 package org.usfirst.frc.team6353.robot.commands;
 
-import org.usfirst.frc.team6353.robot.Robot;
-import org.usfirst.frc.team6353.robot.RobotMap;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -11,7 +8,8 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ClimbReverseCommand extends Command {
 
     public ClimbReverseCommand() {
-    	requires(Robot.climbSubsystem);
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
@@ -20,7 +18,6 @@ public class ClimbReverseCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.climbSubsystem.climb(RobotMap.ClimbReverseSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
