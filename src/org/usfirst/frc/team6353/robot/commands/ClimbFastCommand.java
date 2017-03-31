@@ -1,19 +1,17 @@
 package org.usfirst.frc.team6353.robot.commands;
 
 import org.usfirst.frc.team6353.robot.Robot;
+import org.usfirst.frc.team6353.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ClimbDefaultCommand extends Command {
+public class ClimbFastCommand extends Command {
 
-
-    public ClimbDefaultCommand() {
-    	requires(Robot.climbSubsystem);
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public ClimbFastCommand() {
+        requires(Robot.climbSubsystem);
     }
 
     // Called just before this Command runs the first time
@@ -22,7 +20,7 @@ public class ClimbDefaultCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.climbSubsystem.stop();	
+    	Robot.climbSubsystem.climb(RobotMap.ClimbFullSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

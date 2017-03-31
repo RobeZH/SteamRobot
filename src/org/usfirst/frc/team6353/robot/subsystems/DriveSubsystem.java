@@ -106,11 +106,11 @@ public class DriveSubsystem extends Subsystem {
     public void tankDrive(double leftValue, double rightValue) {
 //    	if(!enabled) return;
 //    	System.out.println("Tankdrive(a,b):"+leftValue+','+rightValue);
-    	enableconstant = (status ? 1 : 0);
+//    	enableconstant = (status ? 1 : 0);
     	leftSpeed = leftValue;
     	rightSpeed = rightValue;
-		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant * leftValue * enableconstant,
-				RobotMap.DriverSpeedControlConstant * rightValue * enableconstant);
+		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant * leftValue ,// * enableconstant,
+				RobotMap.DriverSpeedControlConstant * rightValue); // * enableconstant);
 	}
 
 	public void arcadeDrive(double speed, double rotateValue) {

@@ -43,9 +43,8 @@ public class ClimbSubsystem extends Subsystem {
     	status = !status;
     }
     
-    public void run(Joystick joy){
-    	double controlSpeedConstant = - joy.getRawAxis(RobotMap.DriverSpeedControlAxisPort) / 2 + 1.0 / 2;
-    	climbwheel.setSpeed(RobotMap.ClimbWheelSpeed * controlSpeedConstant *  (status ? 1 : 0));
+    public void climb(double speed){
+    	climbwheel.setSpeed(speed);
     }
     
     public void resetFinish(){

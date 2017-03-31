@@ -6,12 +6,13 @@ import org.usfirst.frc.team6353.robot.commands.ShootHighCommand;
 import org.usfirst.frc.team6353.robot.commands.ShootHighReverseCommand;
 import org.usfirst.frc.team6353.robot.commands.BallCollectCommand;
 import org.usfirst.frc.team6353.robot.commands.BallCollectReverseCommand;
-import org.usfirst.frc.team6353.robot.commands.ClimbCommand;
+import org.usfirst.frc.team6353.robot.commands.ClimbFastCommand;
+import org.usfirst.frc.team6353.robot.commands.ClimbReverseCommand;
+import org.usfirst.frc.team6353.robot.commands.ClimbSlowCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateLeftCommand;
 //import org.usfirst.frc.team6353.robot.commands.DriveStopCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateRightCommand;
 import org.usfirst.frc.team6353.robot.commands.EmergStopCommand;
-import org.usfirst.frc.team6353.robot.commands.DriveEnableStatusChangeCommand;
 import org.usfirst.frc.team6353.robot.commands.ShootPrepareCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -38,7 +39,9 @@ public class OI {
 	public Button EmergStopButton;
 	public Button BallCollectButton;
 	public Button BallCollectReverseButton;
-	public Button ClimbButton;
+	public Button ClimbSlowButton;
+	public Button ClimbFastButton;
+	public Button ClimbReverseButton;
 	
 	public OI(){
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
@@ -56,11 +59,15 @@ public class OI {
 		BallCollectButton = new JoystickButton(auxJoystick, RobotMap.BallCollectButtonID);
 		BallCollectReverseButton = new JoystickButton(auxJoystick, RobotMap.BallCollectReverseButtonID);
 		ShootReverseButton = new JoystickButton(auxJoystick, RobotMap.ShootReverseButtonID);
-		ClimbButton = new JoystickButton(auxJoystick, RobotMap.ClimbButtonID);
+//		ClimbButton = new JoystickButton(auxJoystick, RobotMap.ClimbButtonID);
+		ClimbSlowButton = new JoystickButton(auxJoystick, RobotMap.ClimbSlowButtonID);
+		ClimbFastButton = new JoystickButton(auxJoystick, RobotMap.ClimbFastButtonID);
+		ClimbReverseButton = new JoystickButton(auxJoystick, RobotMap.ClimbReverseButtonID);
+		
 		//TRIGGERING COMMANDS WITH BUTTONS
 		
-		EnableDrivingButton.whenPressed(new DriveEnableStatusChangeCommand());
-		EnableDrivingButton.whenReleased(new DriveEnableStatusChangeCommand());
+//		EnableDrivingButton.whenPressed(new DriveEnableStatusChangeCommand());
+//		EnableDrivingButton.whenReleased(new DriveEnableStatusChangeCommand());
 		AbsRotateLeftButton.whileHeld(new DriveAbsRotateLeftCommand());
 		AbsRotateRightButton.whileHeld(new DriveAbsRotateRightCommand());
 		EmergStopButton.whileHeld(new EmergStopCommand());
@@ -74,7 +81,9 @@ public class OI {
 		BallCollectButton.whileHeld(new BallCollectCommand());
 		BallCollectReverseButton.whileHeld(new BallCollectReverseCommand());
 		
-		ClimbButton.whenPressed(new ClimbCommand());
+		ClimbSlowButton.whileHeld(new ClimbSlowCommand());
+		ClimbFastButton.whileHeld(new ClimbFastCommand());
+		ClimbReverseButton.whileHeld(new ClimbReverseCommand());
 	}
 
 	//// CREATING BUTTONS
