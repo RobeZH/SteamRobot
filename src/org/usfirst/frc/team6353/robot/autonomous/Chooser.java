@@ -15,8 +15,13 @@ public class Chooser {
 		//System.out.println("Creating CHooser");
 		chooser = new SendableChooser<CommandGroup>();
 		
-		chooser.addDefault("什么都没干", null);
+		chooser.addDefault("Do nothing", null);
 		chooser.addDefault("Right Side, Red", new RightSideRedCommandGroup());
+		chooser.addDefault("Middle, Red", new MiddleRedCommandGroup());
+		chooser.addDefault("Left Side, Red", new LeftSideRedCommandGroup());
+		chooser.addDefault("Right Side, Blue", new LeftSideRedCommandGroup());
+		chooser.addDefault("Middle, Blue", new MiddleRedCommandGroup());
+		
 		
 		SmartDashboard.putData("Auto selector", chooser);
 		System.out.println("Creating Chooser compelte");

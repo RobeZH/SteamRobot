@@ -7,23 +7,28 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AutoDriveRotateCommand extends Command {
-	double directionAndSpeed;
-
-    public AutoDriveRotateCommand(double rotateTime, double rotatedirectionAndSpeed) {
-    	setTimeout(rotateTime);
-    	directionAndSpeed = rotatedirectionAndSpeed;
+public class AutoShootHighCommand extends Command {
+	private double timeout;
+	
+    public AutoShootHighCommand(double timeout) {
+    	requires(Robot.shootSubsystem);
+        this.timeout = timeout;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	if (timeout != 0) {
+    		setTimeout(timeout);
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveSubsystem.robotDrive.tankDrive(directionAndSpeed, - directionAndSpeed);
+    	if(timeSinceInitialized() > 1.5){
+    		Robot.shootSubsystem.shoot();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,7 +38,7 @@ public class AutoDriveRotateCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveSubsystem.robotDrive.tankDrive(0, 0);
+    	Robot.shootSubsystem.stop();
     }
 
     // Called when another command which requires one or more of the same

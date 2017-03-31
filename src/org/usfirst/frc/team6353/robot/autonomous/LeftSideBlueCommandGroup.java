@@ -10,12 +10,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class RightSideRedCommandGroup extends CommandGroup {
+public class LeftSideBlueCommandGroup extends CommandGroup {
 
-    public RightSideRedCommandGroup() {
+    public LeftSideBlueCommandGroup() {
     	addParallel(new AutoShootPrepareCommand(10));
     	addSequential(new AutoShootHighCommand(10));
-    	addSequential(new AutoDriveRotateCommand(2, -0.5));
+    	addSequential(new AutoDriveRotateCommand(2, 0.5));
     	addSequential(new AutoDriveStraightCommand(0.5,5));
         // Add Commands here:
         // e.g. addSequential(new Command1());
