@@ -52,6 +52,9 @@ public class OI {
 		AbsRotateLeftButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateLButtonID);
 		AbsRotateRightButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateRButtonID);
 		EmergStopButton = new JoystickButton(mainJoystick, RobotMap.EmergStopButtonID);
+		ClimbSlowButton = new JoystickButton(mainJoystick, RobotMap.ClimbSlowButtonID);
+		ClimbFastButton = new JoystickButton(mainJoystick, RobotMap.ClimbFastButtonID);
+		ClimbReverseButton = new JoystickButton(mainJoystick, RobotMap.ClimbReverseButtonID);
 		
 		ShootPrepButton = new JoystickButton(auxJoystick, RobotMap.ShootPrepareButtonID);
 //		AimingButton = new JoystickButton(auxJoystick, RobotMap.AimingButtonID);
@@ -60,9 +63,7 @@ public class OI {
 		BallCollectReverseButton = new JoystickButton(auxJoystick, RobotMap.BallCollectReverseButtonID);
 		ShootReverseButton = new JoystickButton(auxJoystick, RobotMap.ShootReverseButtonID);
 //		ClimbButton = new JoystickButton(auxJoystick, RobotMap.ClimbButtonID);
-		ClimbSlowButton = new JoystickButton(auxJoystick, RobotMap.ClimbSlowButtonID);
-		ClimbFastButton = new JoystickButton(auxJoystick, RobotMap.ClimbFastButtonID);
-		ClimbReverseButton = new JoystickButton(auxJoystick, RobotMap.ClimbReverseButtonID);
+
 		
 		//TRIGGERING COMMANDS WITH BUTTONS
 		

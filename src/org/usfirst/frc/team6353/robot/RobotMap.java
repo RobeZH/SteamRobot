@@ -43,7 +43,7 @@ public class RobotMap {
 //	public static final int AimingButtonID = 0;
 	public static final int BallCollectButtonID = 1;
 	public static final int BallCollectReverseButtonID = 2;
-	public static final int ClimbButtonID = 4;
+//	public static final int ClimbButtonID = 4;
 	
 	//Camera
 	public static final int USBCameraWidth = 320;

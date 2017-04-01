@@ -25,6 +25,8 @@ public class DriveSubsystem extends Subsystem {
 	private double leftSpeed = 0;
 	private double rightSpeed = 0;
 	private int enableconstant = 0;
+	private double leftFixingConstant = 1.0;
+	private double rightFixingConstant = 1.1;
 	
 	public RobotDrive robotDrive;
 	
@@ -99,8 +101,8 @@ public class DriveSubsystem extends Subsystem {
     		leftSpeed = 0;
     		rightSpeed = 0;
     	}
-    	tankDrive(controlspeedconstant * Proportiontozero * leftSpeed,
-    			controlspeedconstant * Proportiontozero * rightSpeed);		
+    	tankDrive(controlspeedconstant * Proportiontozero * leftSpeed * leftFixingConstant,
+    			controlspeedconstant * Proportiontozero * rightSpeed * rightFixingConstant);		
     }
     
     public void tankDrive(double leftValue, double rightValue) {
@@ -109,8 +111,8 @@ public class DriveSubsystem extends Subsystem {
 //    	enableconstant = (status ? 1 : 0);
     	leftSpeed = leftValue;
     	rightSpeed = rightValue;
-		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant * leftValue ,// * enableconstant,
-				RobotMap.DriverSpeedControlConstant * rightValue); // * enableconstant);
+		robotDrive.tankDrive(RobotMap.DriverSpeedControlConstant * leftValue,// * enableconstant,
+				RobotMap.DriverSpeedControlConstant * rightValue ); // * enableconstant);
 	}
 
 	public void arcadeDrive(double speed, double rotateValue) {
@@ -119,14 +121,16 @@ public class DriveSubsystem extends Subsystem {
 	
 	public void AbsRotateLeft(Joystick joy) {
 //		if(!enabled) return;
-		double controlSpeedConstant = - joy.getRawAxis(RobotMap.DriverSpeedControlAxisPort) / 2 + 1.0 / 2;
-		tankDrive( - controlSpeedConstant, controlSpeedConstant);
+//		double controlSpeedConstant = - joy.getRawAxis(RobotMap.DriverSpeedControlAxisPort) / 2 + 1.0 / 2;
+//		tankDrive( - controlSpeedConstant, controlSpeedConstant);
+		tankDrive(-0.7,0.7);
 	}
 	
 	public void AbsRotateRight(Joystick joy) {
 //		if(!enabled) return;
-		double controlSpeedConstant = - joy.getRawAxis(RobotMap.DriverSpeedControlAxisPort) / 2 + 1.0 / 2;
-		tankDrive(controlSpeedConstant, - controlSpeedConstant);
+//		double controlSpeedConstant = - joy.getRawAxis(RobotMap.DriverSpeedControlAxisPort) / 2 + 1.0 / 2;
+//		tankDrive(controlSpeedConstant, - controlSpeedConstant);
+		tankDrive(0.7, - 0.7);
 	}
 	
 	public boolean getStatus(){

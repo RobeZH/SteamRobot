@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class LeftSideRedCommandGroup extends CommandGroup {
 
     public LeftSideRedCommandGroup() {
-    	addSequential(new AutoDriveStraightCommand(0.5,5));
+    	addSequential(new AutoDriveStraightCommand(0.5,3));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
