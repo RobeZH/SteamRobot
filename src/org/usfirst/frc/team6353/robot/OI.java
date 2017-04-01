@@ -1,11 +1,6 @@
 package org.usfirst.frc.team6353.robot;
 
 import org.usfirst.frc.team6353.robot.RobotMap;
-import org.usfirst.frc.team6353.robot.commands.ShootAimingCommand;
-import org.usfirst.frc.team6353.robot.commands.ShootHighCommand;
-import org.usfirst.frc.team6353.robot.commands.ShootHighReverseCommand;
-import org.usfirst.frc.team6353.robot.commands.BallCollectCommand;
-import org.usfirst.frc.team6353.robot.commands.BallCollectReverseCommand;
 import org.usfirst.frc.team6353.robot.commands.ClimbFastCommand;
 import org.usfirst.frc.team6353.robot.commands.ClimbReverseCommand;
 import org.usfirst.frc.team6353.robot.commands.ClimbSlowCommand;
@@ -14,7 +9,6 @@ import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateLeftCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateRightCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveStraightCommand;
 import org.usfirst.frc.team6353.robot.commands.EmergStopCommand;
-import org.usfirst.frc.team6353.robot.commands.ShootPrepareCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -33,13 +27,7 @@ public class OI {
 	public Button EnableDrivingButton;
 	public Button AbsRotateLeftButton;
 	public Button AbsRotateRightButton;
-	public Button ShootPrepButton;
-	public Button ShootButton;
-	public Button ShootReverseButton;
-//	public Button AimingButton;
 	public Button EmergStopButton;
-	public Button BallCollectButton;
-	public Button BallCollectReverseButton;
 	public Button ClimbSlowButton;
 	public Button ClimbFastButton;
 	public Button ClimbReverseButton;
@@ -62,15 +50,6 @@ public class OI {
 		DriveBackwardButton = new JoystickButton(mainJoystick, RobotMap.DriveBackwardButtonID);
 		
 		
-		ShootPrepButton = new JoystickButton(auxJoystick, RobotMap.ShootPrepareButtonID);
-//		AimingButton = new JoystickButton(auxJoystick, RobotMap.AimingButtonID);
-		ShootButton = new JoystickButton(auxJoystick, RobotMap.ShootButtonID);
-		BallCollectButton = new JoystickButton(auxJoystick, RobotMap.BallCollectButtonID);
-		BallCollectReverseButton = new JoystickButton(auxJoystick, RobotMap.BallCollectReverseButtonID);
-		ShootReverseButton = new JoystickButton(auxJoystick, RobotMap.ShootReverseButtonID);
-//		ClimbButton = new JoystickButton(auxJoystick, RobotMap.ClimbButtonID);
-
-		
 		//TRIGGERING COMMANDS WITH BUTTONS
 		
 //		EnableDrivingButton.whenPressed(new DriveEnableStatusChangeCommand());
@@ -81,15 +60,6 @@ public class OI {
 		
 		DriveForwardButton.whileHeld(new DriveStraightCommand(1));
 		DriveBackwardButton.whileHeld(new DriveStraightCommand(-1));
-		
-		ShootPrepButton.whenPressed(new ShootPrepareCommand());
-//		AimingButton.whileHeld(new ShootAimingCommand());
-		
-		ShootButton.whileHeld(new ShootHighCommand());
-		ShootReverseButton.whileHeld(new ShootHighReverseCommand());
-		
-		BallCollectButton.whileHeld(new BallCollectCommand());
-		BallCollectReverseButton.whileHeld(new BallCollectReverseCommand());
 		
 		ClimbSlowButton.whileHeld(new ClimbSlowCommand());
 		ClimbFastButton.whileHeld(new ClimbFastCommand());

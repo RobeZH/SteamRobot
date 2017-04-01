@@ -16,12 +16,7 @@ public class Chooser {
 		chooser = new SendableChooser<CommandGroup>();
 		
 		chooser.addDefault("Do nothing", null);
-		chooser.addDefault("Right Side, Red", new RightSideRedCommandGroup());
-		chooser.addDefault("Middle, Red", new MiddleRedCommandGroup());
-		chooser.addDefault("Left Side, Red", new LeftSideRedCommandGroup());
-		chooser.addDefault("Right Side, Blue", new LeftSideRedCommandGroup());
-		chooser.addDefault("Middle, Blue", new MiddleRedCommandGroup());
-		chooser.addDefault("Left Side, Blue", new LeftSideBlueCommandGroup());
+		chooser.addDefault("Straight Forward", new DriveStraightForward());
 		
 		SmartDashboard.putData("Auto selector", chooser);
 		System.out.println("Creating Chooser compelte");

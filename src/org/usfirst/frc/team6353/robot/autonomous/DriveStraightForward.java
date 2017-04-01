@@ -1,22 +1,16 @@
 package org.usfirst.frc.team6353.robot.autonomous;
 
-import org.usfirst.frc.team6353.robot.commands.AutoDriveRotateCommand;
 import org.usfirst.frc.team6353.robot.commands.AutoDriveStraightCommand;
-import org.usfirst.frc.team6353.robot.commands.AutoShootHighCommand;
-import org.usfirst.frc.team6353.robot.commands.AutoShootPrepareCommand;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class LeftSideBlueCommandGroup extends CommandGroup {
+public class DriveStraightForward extends CommandGroup {
 
-    public LeftSideBlueCommandGroup() {
-    	addParallel(new AutoShootPrepareCommand(10));
-    	addSequential(new AutoShootHighCommand(10));
-    	addSequential(new AutoDriveRotateCommand(2, 0.5));
-    	addSequential(new AutoDriveStraightCommand(0.5,5));
+    public DriveStraightForward() {
+    	addSequential(new AutoDriveStraightCommand(0.5, 4));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

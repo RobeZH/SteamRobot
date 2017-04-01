@@ -5,12 +5,9 @@ import org.opencv.core.Rect;
 import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team6353.robot.autonomous.Chooser;
 import org.usfirst.frc.team6353.robot.grip.GripPipeline;
-import org.usfirst.frc.team6353.robot.subsystems.ShootPrepareSubsystem;
-import org.usfirst.frc.team6353.robot.subsystems.BallCollectSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.ClimbSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.GyroSubsystem;
-import org.usfirst.frc.team6353.robot.subsystems.ShootSubsystem;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
@@ -33,12 +30,7 @@ public class Robot extends IterativeRobot {
 	
 	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
 	public static final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
-    public static final ShootSubsystem shootSubsystem = new ShootSubsystem();
-    public static final BallCollectSubsystem ballCollectSubsystem = new BallCollectSubsystem();
     public static final GyroSubsystem gyroSubsystem = new GyroSubsystem();
-    public static final ShootPrepareSubsystem shootPrepareSubsystem = 
-			new ShootPrepareSubsystem();
-	
 	
 	public static UsbCamera camera;
 	public static final Object imgLock = new Object();
