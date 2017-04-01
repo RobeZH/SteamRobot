@@ -31,6 +31,7 @@ public class OI {
 	public Button ClimbSlowButton;
 	public Button ClimbFastButton;
 	public Button ClimbReverseButton;
+	public Button ClimbAdjustButton;
 	public Button DriveForwardButton;
 	public Button DriveBackwardButton;
 	
@@ -46,8 +47,11 @@ public class OI {
 		ClimbSlowButton = new JoystickButton(mainJoystick, RobotMap.ClimbSlowButtonID);
 		ClimbFastButton = new JoystickButton(mainJoystick, RobotMap.ClimbFastButtonID);
 		ClimbReverseButton = new JoystickButton(mainJoystick, RobotMap.ClimbReverseButtonID);
-		DriveForwardButton = new JoystickButton(mainJoystick, RobotMap.DriveForwardButtonID);
-		DriveBackwardButton = new JoystickButton(mainJoystick, RobotMap.DriveBackwardButtonID);
+//		DriveForwardButton = new JoystickButton(mainJoystick, RobotMap.DriveForwardButtonID);
+//		DriveBackwardButton = new JoystickButton(mainJoystick, RobotMap.DriveBackwardButtonID);
+		
+		ClimbAdjustButton = new JoystickButton(auxJoystick, RobotMap.ClimbAdjustButtonID);
+
 		
 		
 		//TRIGGERING COMMANDS WITH BUTTONS
@@ -58,12 +62,13 @@ public class OI {
 		AbsRotateRightButton.whileHeld(new DriveAbsRotateRightCommand());
 		EmergStopButton.whileHeld(new EmergStopCommand());
 		
-		DriveForwardButton.whileHeld(new DriveStraightCommand(1));
-		DriveBackwardButton.whileHeld(new DriveStraightCommand(-1));
+//		DriveForwardButton.whileHeld(new DriveStraightCommand(1));
+//		DriveBackwardButton.whileHeld(new DriveStraightCommand(-1));
 		
 		ClimbSlowButton.whileHeld(new ClimbSlowCommand());
 		ClimbFastButton.whileHeld(new ClimbFastCommand());
 		ClimbReverseButton.whileHeld(new ClimbReverseCommand());
+		ClimbAdjustButton.whileHeld(new ClimbSlowCommand());
 	}
 
 	//// CREATING BUTTONS

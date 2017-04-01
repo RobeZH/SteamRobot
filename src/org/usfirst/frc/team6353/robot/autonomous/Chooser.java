@@ -17,6 +17,7 @@ public class Chooser {
 		
 		chooser.addDefault("Do nothing", null);
 		chooser.addDefault("Straight Forward", new DriveStraightForward());
+		chooser.addDefault("Test Gyro", new TestGyroAngle());
 		
 		SmartDashboard.putData("Auto selector", chooser);
 		System.out.println("Creating Chooser compelte");
