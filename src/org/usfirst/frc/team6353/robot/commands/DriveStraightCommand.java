@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6353.robot.commands;
 
 import org.usfirst.frc.team6353.robot.Robot;
+import org.usfirst.frc.team6353.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -31,6 +32,11 @@ public class DriveStraightCommand extends Command {
     	angle = Robot.gyroSubsystem.getAngle();
     	speed = Robot.driveSubsystem.getSpeedConstant(Robot.oi.mainJoystick);
     	Robot.driveSubsystem.arcadeDrive(speed * direction, -kp*angle);
+    	
+		Robot.driveSubsystem.arcadeDrive(speed, 
+				Math.abs(angle) < RobotMap.GyroStraightRotateToleranceDegree
+				? 0
+				: RobotMap.GyroStraightAdjustConstant * Math.signum(angle));
     }
 
     // Make this return true when this Command no longer needs to run execute()
