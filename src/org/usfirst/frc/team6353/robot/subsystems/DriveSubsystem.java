@@ -58,6 +58,11 @@ public class DriveSubsystem extends Subsystem {
 		return rightSpeed;
 	}
     
+	public double getSpeedConstant(Joystick joy){
+		double constant = - joy.getRawAxis(RobotMap.DriverSpeedControlAxisPort) / 2 + 1.0 / 2;
+		return constant;
+	}
+	
     public void tankDrive(Joystick joy) {
 //    	if(!enabled) return;
     	double x = joy.getRawAxis(RobotMap.DriverHorizontalAxisPort);

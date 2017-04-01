@@ -28,6 +28,7 @@ public class RobotMap {
 	public static final int DriverVerticalAxisPort = 1;
 	public static final int DriverSpeedControlAxisPort = 3;
 	
+	
 	public static final int DriverJoystickAbsRotateLButtonID = 3;
 	public static final int DriverJoystickAbsRotateRButtonID = 4;
 	public static final int EnableDrivingButtonID = 1;
@@ -35,6 +36,8 @@ public class RobotMap {
 	public static final int ClimbSlowButtonID = 8;
 	public static final int ClimbFastButtonID = 10;
 	public static final int ClimbReverseButtonID = 12;
+	public static final int DriveForwardButtonID = 7;
+	public static final int DriveBackwardButtonID = 9;
 	
 	//AuxJoystick Button&Axis IDs
 	public static final int ShootPrepareButtonID = 5;
@@ -67,6 +70,7 @@ public class RobotMap {
 	public static final double ClimbFullSpeed = 1;
 	public static final double ClimbSlowSpeed = 0.4;
 	public static final double ClimbReverseSpeed = - 0.4;
+
 	
 	
 }

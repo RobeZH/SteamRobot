@@ -5,20 +5,16 @@ import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 
 /**
  *
  */
 public class GyroSubsystem extends Subsystem {
 
-	AHRS ahrs;
+	public Gyro gyro;
 
 	public GyroSubsystem() {
-		try {
-			ahrs = new AHRS(SPI.Port.kMXP);
-		} catch (RuntimeException ex) {
-			DriverStation.reportError("Error instantiating navX-MXP:  " + ex.getMessage(), true);
-		}
 	}
 	
     public void initDefaultCommand() {
@@ -27,7 +23,7 @@ public class GyroSubsystem extends Subsystem {
     }
     
     public double getAngle() {
-		return ahrs.getAngle();
+		return gyro.getAngle();
 	}
 }
 
