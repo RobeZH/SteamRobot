@@ -23,6 +23,7 @@ public class GyroSubsystem extends Subsystem {
     }
     
     public double getAngle() {
+    	System.out.println(gyro.getAngle());
 		return gyro.getAngle();
 	}
 }
