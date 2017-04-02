@@ -1,6 +1,8 @@
 package org.usfirst.frc.team6353.robot.autonomous;
 
 
+import org.usfirst.frc.team6353.robot.commands.AutoDeliverGearCommand;
+
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -18,6 +20,8 @@ public class Chooser {
 		chooser.addDefault("Do nothing", null);
 		chooser.addDefault("Straight Forward", new DriveStraightForward());
 		chooser.addDefault("Test Gyro", new TestGyroAngle());
+		chooser.addDefault("Try Straight with Gyro", new AutoDeliverGear());
+		chooser.addDefault("Try Straight without Gyro", new AutoDeliverGearWithoutGyro());
 		
 		SmartDashboard.putData("Auto selector", chooser);
 		System.out.println("Creating Chooser compelte");

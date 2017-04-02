@@ -8,43 +8,47 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveStraightCommand extends Command {
-
-	double angle;
-	int direction;
-	double kp = 0.03;
-	double speed;
+public class AutoDeliverGearCommand extends Command {
 	
-    public DriveStraightCommand(int direction) {
+
+	private double speed;
+	private double timeout;
+	
+    public AutoDeliverGearCommand(double speed, double timeout) {
     	requires(Robot.driveSubsystem);
-    	this.direction = direction;
+        this.speed = speed;
+        this.timeout = timeout;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	if (timeout != 0) {
+    		setTimeout(timeout);
+    	}
     	Robot.gyroSubsystem.gyro.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	angle = Robot.gyroSubsystem.getAngle();
-    	speed = Robot.driveSubsystem.getSpeedConstant(Robot.oi.mainJoystick);
+    	double angle = Robot.gyroSubsystem.getAngle();
     	
 		Robot.driveSubsystem.arcadeDrive(speed, 
 				Math.abs(angle) < RobotMap.GyroStraightRotateToleranceDegree
 				? 0
 				: RobotMap.GyroStraightAdjustConstant * Math.signum(angle));
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.driveSubsystem.robotDrive.tankDrive(0,0);
     }
 
     // Called when another command which requires one or more of the same
