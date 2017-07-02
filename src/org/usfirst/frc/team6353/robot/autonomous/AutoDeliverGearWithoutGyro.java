@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
+/*
 public class AutoDeliverGearWithoutGyro extends CommandGroup {
 
     public AutoDeliverGearWithoutGyro() {
@@ -30,3 +31,4 @@ public class AutoDeliverGearWithoutGyro extends CommandGroup {
         // arm.
     }
 }
+*/

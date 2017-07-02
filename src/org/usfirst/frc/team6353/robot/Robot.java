@@ -3,7 +3,7 @@ package org.usfirst.frc.team6353.robot;
 
 import org.opencv.core.Rect;
 import org.opencv.imgproc.Imgproc;
-import org.usfirst.frc.team6353.robot.autonomous.Chooser;
+//import org.usfirst.frc.team6353.robot.autonomous.Chooser;
 import org.usfirst.frc.team6353.robot.grip.GripPipeline;
 import org.usfirst.frc.team6353.robot.subsystems.ClimbSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.DriveSubsystem;
@@ -38,7 +38,7 @@ public class Robot extends IterativeRobot {
 	public static double centerX = 0.0;
 	public static double centerY = 0.0;
 	
-	Chooser chooser;
+//	Chooser chooser;
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -47,7 +47,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser = new Chooser();
+//		chooser = new Chooser();
 		System.out.println("Robot Initializing");
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -98,7 +98,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		System.out.println("Autonoumous Period Initializing");
-		chooser.run();
+	//	chooser.run();
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		chooser.cancel();
+//		chooser.cancel();
 	}
 
 	/**

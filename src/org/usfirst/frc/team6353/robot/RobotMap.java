@@ -1,4 +1,4 @@
-package org.usfirst.frc.team6353.robot;
+ package org.usfirst.frc.team6353.robot;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -65,7 +65,7 @@ public class RobotMap {
 	public static final double GyroStraightRotateTolerance = 1;
 	
 	//for tests
-	public static final double DriverSpeedControlConstant = 1;
+	public static final double DriverSpeedControlConstant = 0.8;
 	
 	
 	//motor speed

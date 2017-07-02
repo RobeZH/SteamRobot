@@ -1,4 +1,4 @@
-package org.usfirst.frc.team6353.robot.subsystems;
+ package org.usfirst.frc.team6353.robot.subsystems;
 
 
 import org.usfirst.frc.team6353.robot.RobotMap;
@@ -26,7 +26,7 @@ public class DriveSubsystem extends Subsystem {
 	private double rightSpeed = 0;
 	private int enableconstant = 0;
 	private double leftFixingConstant = 1.0;
-	private double rightFixingConstant = 1.1;
+	private double rightFixingConstant = 1.0;
 	
 	public RobotDrive robotDrive;
 	

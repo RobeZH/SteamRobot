@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
+/*
 public class Chooser {
 
 	SendableChooser<CommandGroup> chooser;
@@ -39,3 +39,4 @@ public class Chooser {
 			autonomousCommand.cancel();
 	}
 }
+*/

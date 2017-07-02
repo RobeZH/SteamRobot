@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
+/*
 public class AutoDeliverGear extends CommandGroup {
 
     public AutoDeliverGear() {
@@ -31,3 +32,4 @@ public class AutoDeliverGear extends CommandGroup {
         // arm.
     }
 }
+*/
