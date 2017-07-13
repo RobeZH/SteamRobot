@@ -9,6 +9,11 @@ import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateLeftCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveAbsRotateRightCommand;
 import org.usfirst.frc.team6353.robot.commands.DriveStraightCommand;
 import org.usfirst.frc.team6353.robot.commands.EmergStopCommand;
+import org.usfirst.frc.team6353.robot.commands.GearCommand;
+import org.usfirst.frc.team6353.robot.commands.GearLiftCommand;
+import org.usfirst.frc.team6353.robot.commands.GearLiftReverseCommand;
+import org.usfirst.frc.team6353.robot.commands.GearLiftSlowCommand;
+import org.usfirst.frc.team6353.robot.commands.GearReverseCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -34,25 +39,32 @@ public class OI {
 	public Button ClimbAdjustButton;
 	public Button DriveForwardButton;
 	public Button DriveBackwardButton;
+	public Button GearButton;
+	public Button GearLiftButton;
+	public Button GearLiftReverseButton;
+	public Button GearReverseButton;
+	public Button GearLiftSlowButton;
 	
 	public OI(){
 		mainJoystick = new Joystick(RobotMap.DriverJoystickPort);
 		auxJoystick = new Joystick(RobotMap.AuxJoystickPort);
 		
 		//CREATING BUTTONS
+			//mainJoystick Buttons
 		EnableDrivingButton =  new JoystickButton(mainJoystick, RobotMap.EnableDrivingButtonID);
 		AbsRotateLeftButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateLButtonID);
 		AbsRotateRightButton = new JoystickButton(mainJoystick, RobotMap.DriverJoystickAbsRotateRButtonID);
 		EmergStopButton = new JoystickButton(mainJoystick, RobotMap.EmergStopButtonID);
-		ClimbSlowButton = new JoystickButton(mainJoystick, RobotMap.ClimbSlowButtonID);
-		ClimbFastButton = new JoystickButton(mainJoystick, RobotMap.ClimbFastButtonID);
-		ClimbReverseButton = new JoystickButton(mainJoystick, RobotMap.ClimbReverseButtonID);
 //		DriveForwardButton = new JoystickButton(mainJoystick, RobotMap.DriveForwardButtonID);
 //		DriveBackwardButton = new JoystickButton(mainJoystick, RobotMap.DriveBackwardButtonID);
-		
-		ClimbAdjustButton = new JoystickButton(auxJoystick, RobotMap.ClimbAdjustButtonID);
-
-		
+			//ausJoystick Buttons
+		GearButton = new JoystickButton(auxJoystick, RobotMap.GearButtonID);
+		GearReverseButton = new JoystickButton(auxJoystick, RobotMap.GearReverseButtonID);
+		GearLiftButton = new JoystickButton(auxJoystick, RobotMap.GearLiftButtonID);
+		GearLiftReverseButton = new JoystickButton(auxJoystick, RobotMap.GearLiftReverseButtonID);
+		GearLiftSlowButton = new JoystickButton(auxJoystick, RobotMap.GearLiftSlowButtonID);
+		ClimbFastButton = new JoystickButton(auxJoystick, RobotMap.ClimbFastButtonID);
+		ClimbReverseButton = new JoystickButton(auxJoystick, RobotMap.ClimbReverseButtonID);
 		
 		//TRIGGERING COMMANDS WITH BUTTONS
 		
@@ -69,6 +81,12 @@ public class OI {
 		ClimbFastButton.whileHeld(new ClimbFastCommand());
 		ClimbReverseButton.whileHeld(new ClimbReverseCommand());
 		ClimbAdjustButton.whileHeld(new ClimbSlowCommand());
+		
+		GearButton.whileHeld(new GearCommand());
+		GearReverseButton.whileHeld(new GearReverseCommand());
+		GearLiftButton.whileHeld(new GearLiftCommand());
+		GearLiftReverseButton.whileHeld(new GearLiftReverseCommand());
+		GearLiftSlowButton.whileHeld(new GearLiftSlowCommand());
 	}
 
 	//// CREATING BUTTONS

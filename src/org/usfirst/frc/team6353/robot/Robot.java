@@ -7,6 +7,7 @@ import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team6353.robot.grip.GripPipeline;
 import org.usfirst.frc.team6353.robot.subsystems.ClimbSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.DriveSubsystem;
+import org.usfirst.frc.team6353.robot.subsystems.GearSubsystem;
 import org.usfirst.frc.team6353.robot.subsystems.GyroSubsystem;
 
 import edu.wpi.cscore.UsbCamera;
@@ -31,6 +32,8 @@ public class Robot extends IterativeRobot {
 	public static final DriveSubsystem driveSubsystem = new DriveSubsystem();
 	public static final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
     public static final GyroSubsystem gyroSubsystem = new GyroSubsystem();
+	public static final GearSubsystem GearSubsystem = new GearSubsystem();
+
 	
 	public static UsbCamera camera;
 	public static final Object imgLock = new Object();
